@@ -115,7 +115,6 @@ The SDK maps common Google Maps errors into custom exceptions:
 ---
 
 # 🤝 Contributing
-
 Contributions are welcome!
 - Open issues
 - Submit PRs
@@ -125,12 +124,11 @@ Contributions are welcome!
 ---
 
 # 📄 License
-
-MIT License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
 # 🙌 Credits
-
-Created & maintained by JSebas-11
+Created & maintained by JSebas-11 (Sebastian Delgado)
 Designed for clean architecture, developer ergonomics, and real-world Maps integrations.
+
