@@ -13,7 +13,7 @@ internal class RequestBuilder : IRequestBuilder {
     public RequestBuilder(IMapsUriBuilder uriBuilder) 
         => _uriBuilder = uriBuilder;
 
-    // -------------------- METHS --------------------
+    // -------------------- BUILD --------------------
     public HttpRequestMessage Build() {
         if (_payload is not null)
             _request.Content = JsonContent.Create(_payload);
@@ -22,6 +22,7 @@ internal class RequestBuilder : IRequestBuilder {
         return _request;
     }
 
+    // -------------------- CONFIG --------------------
     public IRequestBuilder SetMethod(HttpMethod method) {
         _request.Method = method;
         return this;

@@ -6,7 +6,7 @@ internal class MapsUriBuilder : IMapsUriBuilder {
     private string? _path;
     private readonly Dictionary<string, string> _query = [];
 
-    // -------------------- METHS --------------------
+    // -------------------- BUILD --------------------
     public Uri Build() {
         if (string.IsNullOrWhiteSpace(_path))
             throw new MapsInvalidRequestException("URL path was not set into the request.");
@@ -20,6 +20,7 @@ internal class MapsUriBuilder : IMapsUriBuilder {
         return new Uri(builder.ToString(), UriKind.Absolute);
     }
 
+    // -------------------- CONFIG --------------------
     public IMapsUriBuilder WithPath(string baseUrl, string endpoint) {
         _path = $"{ClearSlash(baseUrl, false)}/{ClearSlash(endpoint)}";
         return this;
