@@ -2,7 +2,7 @@ using D3lg4doMaps.Core.Internal.Abstractions;
 using D3lg4doMaps.Core.Internal.Factories;
 using D3lg4doMaps.Core.Internal.Http.Builders;
 using D3lg4doMaps.Core.Internal.Http;
-using D3lg4doMaps.Core.Internal.Utils;
+using D3lg4doMaps.Core.Internal.Json;
 using D3lg4doMaps.Core.Public.Abstractions;
 using D3lg4doMaps.Core.Public.Configuration;
 using Microsoft.Extensions.DependencyInjection;
