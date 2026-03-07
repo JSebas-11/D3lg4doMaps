@@ -4,5 +4,5 @@ internal static class PlacesEndpoints {
     public const string BaseUrl = "https://places.googleapis.com/v1/";
     public const string SearchText = "places:searchText";
     public const string SearchNearby = "places:searchNearby";
-    public const string autocomplete = "places:autocomplete";
+    public const string Autocomplete = "places:autocomplete";
 }
