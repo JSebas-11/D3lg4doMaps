@@ -1,0 +1,24 @@
+using D3lg4doMaps.Places.Public.Models.Details.Utilities;
+using D3lg4doMaps.Places.Public.Models.Geometry;
+
+namespace D3lg4doMaps.Places.Public.Models.Details;
+
+public sealed class PlaceDetails {
+    public string PlaceId { get; internal set; } = null!;
+    public string? DisplayName { get; internal set; }
+    public string? FormattedAddress { get; internal set; }
+    public string? GlobalCode { get; internal set; }
+    public GeoCenter? Location { get; internal set; }
+    public PostalAddress? PostalAddress { get; internal set; }
+    public string? TimeZone { get; internal set; }
+    public IReadOnlyList<string> Types { get; internal set; } = [];
+    public string? NationalPhoneNumber { get; internal set; }
+    public string? InternationalPhoneNumber { get; internal set; }
+    public string? PriceLevel { get; internal set; }
+    public float? Rating { get; set; }
+    public int? UserRatingCount { get; set; }
+    public IReadOnlyList<string> RegularOpeningHoursDaysDescriptions { get; internal set; } = [];
+    public GoogleMapsLinks? GoogleMapsLinks { get; internal set; }
+    public PaymentOptions? PaymentOptions { get; internal set; }
+    public ParkingOptions? ParkingOptions { get; internal set; }
+}
