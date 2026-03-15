@@ -1,4 +1,5 @@
 using D3lg4doMaps.Core.Public.Abstractions;
+using D3lg4doMaps.Core.Public.Exceptions;
 using D3lg4doMaps.Core.Public.Models;
 using D3lg4doMaps.Places.Internal.Constants;
 using D3lg4doMaps.Places.Internal.Mappers;
@@ -21,6 +22,9 @@ internal class SearchService : ISearchService {
 
     // -------------------- METHS --------------------
     public async Task<IReadOnlyList<PlaceSearchResult>> SearchByTextAsync(string textQuery) {
+        if (string.IsNullOrWhiteSpace(textQuery))
+            throw new MapsInvalidRequestException("TextQuery must be neither empty nor null.");
+        
         var request = CreateRequest(PlacesEndpoints.SearchText, new { textQuery });
         return await SendAndMapAsync(request);
     }
