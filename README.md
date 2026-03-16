@@ -23,28 +23,80 @@ It abstracts the low-level HTTP logic, unifies configuration, and provides typed
 
 ## 1. D3lg4doMaps.Core
 
-Core infrastructure and shared components.
-✔ Includes:
-- IMapsApiClient (HTTP client wrapper)
-- IRequestBuilder, IMapsUriBuilder, IRequestFactory
-- MapsConfiguration + DI extension
-- Custom exceptions
-- JSON serializer
-- Logging support (CORE LOGGING not implemented yet)
+Provides the shared infrastructure used by all SDK modules, including:
+- 🌐 HTTP communication with Google Maps APIs
+- 🧱 Request building and execution
+- 🔄 JSON serialization
+- ⚙️ Centralized configuration
+- 🚨 Exception mapping
+- 🪵 Logging integration (logging pipeline planned)
 
-## 2. D3lg4doMaps.Places (Upcoming)
+⚠ Note: This package is **not intended to be used standalone.**
+Instead, it acts as the foundation for higher-level modules such as d3lg4doMaps.Places and d3lg4doMaps.Routing
 
-A high-level wrapper over the Places API (New).
 
-Planned features:
-- Text Search
-- Nearby Search
-- Autocomplete
-- Place Details
-- Place Photos
-  
-Depends on:
-D3lg4doMaps.Core
+### 🛠 Configuration & Dependency Injection
+The SDK is configured using MapsConfiguration and integrates seamlessly with the ASP.NET Core dependency injection system.
+
+Register the SDK in your Program.cs or Startup.cs:
+```csharp
+services.AddD3lg4doMaps(new MapsConfiguration {
+    ApiKey = "YOUR_API_KEY",
+    Language = "en",
+    Region = "US",
+    TimeOutSeconds = 30,
+});
+```
+| Property |	Description |
+| --- | --- |
+| ApiKey |	Google Maps Platform API key |
+| Language |	Default language for API responses |
+| Region	| Regional bias for results |
+| TimeOutSeconds |	HTTP request timeout |
+
+### 📡 MapsApiRequest
+
+All API calls in the SDK are represented by the MapsApiRequest model.
+This model defines the structure used by the internal HTTP engine to communicate with Google Maps APIs.
+
+| Property |	Description |
+| --- | --- |
+| Method |	HTTP method used for the request |
+| BaseUrl |	Google Maps API base URL |
+| Endpoint	| Specific API endpoint |
+| Headers |	Request headers |
+| Query |	Request body |
+| Payload |	Optional query parameters |
+
+---
+
+## D3lg4doMaps.Places
+
+A high-level wrapper for the **Google Places API (New)**.
+
+This module provides strongly-typed services, request builders, and models for interacting with place data such as search results, autocomplete suggestions, and place details.
+
+### Features
+
+- 🔎 **Text Search** – Find places using natural text queries
+- 📍 **Nearby Search** – Discover places around a location
+- ✨ **Autocomplete** – Get place predictions while typing
+- 🏢 **Place Details** – Retrieve detailed information about a place
+- 📷 **Place Photos** – Access images associated with places
+- ⭐ **Place Reviews** – User ratings and review summaries
+
+**Depends on: D3lg4doMaps.Core**
+
+---
+
+# 🛠 Dependency Injection
+
+Register the Places module alongside the Core SDK.
+
+```csharp
+services.AddD3lg4doMaps(configuration);
+services.AddD3lg4doMapsPlaces();
+```
 
 ## 3. D3lg4doMaps.Routing (Planned)
 
@@ -57,47 +109,6 @@ Planned features:
 - Traffic-aware routing
 - Distance/time matrix queries
 - Support for modes, waypoints, alternatives
-
---- 
-
-# 🚀 Getting Started
-
-1. Install Core
-```
-dotnet add package D3lg4doMaps.Core
-```
-
-2. Register the SDK
-```
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY",
-    Language = "en",
-    Region = "US",
-    TimeOutSeconds = 30,
-});
-```
-
-3. Inject & use the API client
-```
-public class MyService {
-    private readonly IMapsApiClient _client;
-
-    public MyService(IMapsApiClient client) {
-        _client = client;
-    }
-
-    public async Task DoSomethingAsync() {
-        var request = new MapsApiRequest () {
-            Method = HttpMethod.Post,
-            BaseUrl = "https://places.googleapis.com",
-            Endpoint = "/v1/places:searchText",
-            Payload = new { textQuery = "coffee shops" }
-        };
-
-        var result = await _client.SendAsync<MyResponseModel>(request);
-    }
-}
-```
 
 ---
 
