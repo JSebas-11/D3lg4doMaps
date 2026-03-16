@@ -9,6 +9,6 @@ namespace D3lg4doMaps.Places.Public.Abstractions;
 public interface IDetailsService {
     Task<PlaceDetails> GetDetailsAsync(string placeId);
     Task<JsonDocument> GetDetailsRawAsync(string placeId, params string[] fields);
-    Task<IReadOnlyList<PlacePhotos>> GetPhotosAsync(string placeId, PhotoRequest? photoRequest = null);
+    Task<IReadOnlyList<PlacePhoto>> GetPhotosAsync(string placeId, PhotoRequest? photoRequest = null);
     Task<PlaceReviews> GetReviewsAsync(string placeId);
 }

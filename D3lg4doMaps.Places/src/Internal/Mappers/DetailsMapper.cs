@@ -1,6 +1,7 @@
 using System.Text.Json;
 using D3lg4doMaps.Places.Internal.Helpers;
 using D3lg4doMaps.Places.Public.Models.Details;
+using D3lg4doMaps.Places.Public.Models.Details.Photos;
 using D3lg4doMaps.Places.Public.Models.Details.Reviews;
 using D3lg4doMaps.Places.Public.Models.Details.Utilities;
 using D3lg4doMaps.Places.Public.Models.Geometry;
@@ -95,6 +96,19 @@ internal static class DetailsMapper {
             placeRev.ReviewsUri = uris;
 
         return placeRev;
+    }
+    
+    public static PlacePhoto ToPlacePhoto(JsonDocument photoJson, JsonElement photoDetails) {
+        var author = photoDetails.GetArray("authorAttributions").FirstOrDefault();
+
+        return new PlacePhoto() {
+            Uri = new Uri(photoJson.RootElement.GetStringValue("photoUri")!),
+            Name = photoDetails.GetStringValue("name") ?? "",
+            AuthorName = author.ValueKind == JsonValueKind.Object
+                ? author.GetStringValue("displayName") : null,
+            HeightPx = photoDetails.GetInt("heightPx"),
+            WidthPx = photoDetails.GetInt("widthPx")
+        };
     }
     
     // -------------------- ASIDE MODELS --------------------

@@ -3,6 +3,7 @@ using D3lg4doMaps.Core.Public.Abstractions;
 using D3lg4doMaps.Core.Public.Exceptions;
 using D3lg4doMaps.Core.Public.Models;
 using D3lg4doMaps.Places.Internal.Constants;
+using D3lg4doMaps.Places.Internal.Helpers;
 using D3lg4doMaps.Places.Internal.Mappers;
 using D3lg4doMaps.Places.Public.Abstractions;
 using D3lg4doMaps.Places.Public.Models.Details;
@@ -46,16 +47,36 @@ internal class DetailsService : IDetailsService {
         var headers = new Dictionary<string, string>() {
             { "X-Goog-FieldMask", string.Join(',', fields) }
         };
-        var request = CreateRequest($"{PlacesEndpoints.Details}/{placeId}", headers);
+        var request = CreateRequest($"{PlacesEndpoints.Details}/{placeId}", headers: headers);
 
         return await _apiClient.SendAsync<JsonDocument>(request);
     }
 
-    public async Task<IReadOnlyList<PlacePhotos>> GetPhotosAsync(string placeId, PhotoRequest? photoRequest = null) {
-        using var jsonDocument = await GetDetailsRawAsync(placeId, "photos");
+    public async Task<IReadOnlyList<PlacePhoto>> GetPhotosAsync(string placeId, PhotoRequest? photoRequest = null) {
+        using var jsonDocument = await GetDetailsRawAsync(placeId, "photos"); // Get Photo info from Details
+
+        photoRequest ??= new PhotoRequest();
         
-        // {"skipHttpRedirect", "true"}
-        throw new NotImplementedException();
+        var rawPhotos = jsonDocument.RootElement
+            .GetArray("photos")
+            .Take(photoRequest.MaxPhotos)
+            .ToList();
+
+        if (rawPhotos.Count == 0) return [];
+        
+        // COMMON QUERY PARAMS
+        var query = new Dictionary<string, string>() {
+            { "skipHttpRedirect", "true" },
+            { "maxHeightPx", photoRequest.MaxHeightPx.ToString() },
+            { "maxWidthPx", photoRequest.MaxWidthPx.ToString() }
+        };
+
+        // PARALLEL EXECUTION
+        var tasks = new List<Task<PlacePhoto>>();
+        foreach (var photoDet in rawPhotos)
+            tasks.Add(GetPhotoAndMapAsync(photoDet, query));
+
+        return [.. await Task.WhenAll(tasks)];
     }
 
     public async Task<PlaceReviews> GetReviewsAsync(string placeId) {
@@ -64,11 +85,22 @@ internal class DetailsService : IDetailsService {
     }
 
     // -------------------- INNER METHS --------------------
-    private static MapsApiRequest CreateRequest(string endpoint, IDictionary<string, string> headers)
+    private static MapsApiRequest CreateRequest(
+        string endpoint, IDictionary<string, string>? headers = null, IDictionary<string, string>? query = null
+    )
         => new () {
             Method = HttpMethod.Get,
             BaseUrl = PlacesEndpoints.BaseUrl,
             Endpoint = endpoint,
-            Headers = headers
+            Headers = headers,
+            Query = query
         };
+
+    private async Task<PlacePhoto> GetPhotoAndMapAsync(JsonElement photoDets, IDictionary<string, string> reqQuery) {
+        var json = await _apiClient.SendAsync<JsonDocument>(
+            CreateRequest($"{photoDets.GetStringValue("name")!}/media", reqQuery)
+        );
+        
+        return DetailsMapper.ToPlacePhoto(json, photoDets);
+    }
 }
