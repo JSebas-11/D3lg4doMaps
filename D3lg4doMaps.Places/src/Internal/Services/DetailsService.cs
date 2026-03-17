@@ -1,9 +1,9 @@
 using System.Text.Json;
 using D3lg4doMaps.Core.Public.Abstractions;
 using D3lg4doMaps.Core.Public.Exceptions;
+using D3lg4doMaps.Core.Public.Extensions;
 using D3lg4doMaps.Core.Public.Models;
 using D3lg4doMaps.Places.Internal.Constants;
-using D3lg4doMaps.Places.Internal.Helpers;
 using D3lg4doMaps.Places.Internal.Mappers;
 using D3lg4doMaps.Places.Public.Abstractions;
 using D3lg4doMaps.Places.Public.Models.Details;

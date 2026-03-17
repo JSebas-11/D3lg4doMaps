@@ -1,4 +1,4 @@
-using System.Net;
+using D3lg4doMaps.Core.Internal.Handlers;
 using D3lg4doMaps.Core.Public.Abstractions;
 using D3lg4doMaps.Core.Public.Exceptions;
 using D3lg4doMaps.Core.Public.Models;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace D3lg4doMaps.Core.Internal.Http;
 
-public class MapsApiClient : IMapsApiClient {
+internal class MapsApiClient : IMapsApiClient {
     // -------------------- INIT --------------------
     private readonly HttpClient _httpClient;
     private readonly ILogger<MapsApiClient> _logger;
@@ -28,8 +28,8 @@ public class MapsApiClient : IMapsApiClient {
         var request = _reqFactory.CreateRequest(apiRequest);
 
         var response = await _httpClient.SendAsync(request).ConfigureAwait(false);
-
-        ExceptionIfFail(response.StatusCode);
+        
+        ExceptionHandler.Handle(response.StatusCode);
 
         return await DeserializeOrExceptionAsync<T>(response).ConfigureAwait(false);
     }
@@ -41,27 +41,5 @@ public class MapsApiClient : IMapsApiClient {
             ?? throw new MapsApiException($"Response could not be deserialize to type {typeof(T).Name}");
 
         return result;
-    }
-    
-    private static void ExceptionIfFail(HttpStatusCode httpCode) {
-        switch (httpCode) {
-            case HttpStatusCode.Unauthorized:
-            case HttpStatusCode.Forbidden:
-                throw new MapsApiAuthException();
-            
-            case HttpStatusCode.TooManyRequests:
-                throw new MapsRateLimitException();
-
-            case HttpStatusCode.NotFound:
-                throw new MapsNotFoundException();
-
-            case HttpStatusCode.BadRequest:
-                throw new MapsInvalidRequestException();
-
-            default:
-                if ((int)httpCode >= 400)
-                    throw new MapsApiException($"Unexpected HTTP error: {(int)httpCode} {httpCode}");
-                break;
-        }
     }
 }

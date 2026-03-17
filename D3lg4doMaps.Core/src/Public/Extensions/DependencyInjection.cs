@@ -8,7 +8,7 @@ using D3lg4doMaps.Core.Public.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using D3lg4doMaps.Core.Public.Exceptions;
 
-namespace D3lg4doMaps.Core.Public;
+namespace D3lg4doMaps.Core.Public.Extensions;
 
 /// <summary>
 /// Provides extension methods for registering the D3lg4doMaps SDK services

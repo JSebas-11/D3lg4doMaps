@@ -1,5 +1,5 @@
 using System.Text.Json;
-using D3lg4doMaps.Places.Internal.Helpers;
+using D3lg4doMaps.Core.Public.Extensions;
 using D3lg4doMaps.Places.Public.Models.Details;
 using D3lg4doMaps.Places.Public.Models.Details.Photos;
 using D3lg4doMaps.Places.Public.Models.Details.Reviews;
