@@ -58,7 +58,7 @@ public static class DependencyInjection {
         services.AddTransient<IRequestBuilder, RequestBuilder>();
 
         // FACTORIES
-        services.AddScoped<IRequestFactory, RequestFactory>();
+        services.AddTransient<IRequestFactory, RequestFactory>();
 
         return services;
     }

@@ -17,7 +17,13 @@ internal class MapsUriBuilder : IMapsUriBuilder {
         );
         builder.Query = queryStr;
 
+        Reset();
         return new Uri(builder.ToString(), UriKind.Absolute);
+    }
+
+    private void Reset() {
+        _path = null;
+        _query.Clear();    
     }
 
     // -------------------- CONFIG --------------------

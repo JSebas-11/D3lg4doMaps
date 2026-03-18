@@ -7,7 +7,8 @@ internal class RequestBuilder : IRequestBuilder {
     // -------------------- INIT --------------------
     private readonly IMapsUriBuilder _uriBuilder;
 
-    private readonly HttpRequestMessage _request = new();
+    private HttpMethod _method = HttpMethod.Get;
+    private IDictionary<string, string> _headers = new Dictionary<string, string> ();
     private object? _payload;
 
     public RequestBuilder(IMapsUriBuilder uriBuilder) 
@@ -15,16 +16,30 @@ internal class RequestBuilder : IRequestBuilder {
 
     // -------------------- BUILD --------------------
     public HttpRequestMessage Build() {
-        if (_payload is not null)
-            _request.Content = JsonContent.Create(_payload);
+        var request = new HttpRequestMessage() {
+            Method = _method,
+            RequestUri = _uriBuilder.Build()
+        };
 
-        _request.RequestUri = _uriBuilder.Build();
-        return _request;
+        foreach (var item in _headers)
+            request.Headers.TryAddWithoutValidation(item.Key, item.Value);
+
+        if (_payload is not null)
+            request.Content = JsonContent.Create(_payload);
+
+        Reset();
+        return request;
+    }
+
+    private void Reset() {
+        _headers.Clear();
+        _method = HttpMethod.Get;
+        _payload = null;
     }
 
     // -------------------- CONFIG --------------------
     public IRequestBuilder SetMethod(HttpMethod method) {
-        _request.Method = method;
+        _method = method;
         return this;
     }
 
@@ -35,7 +50,7 @@ internal class RequestBuilder : IRequestBuilder {
 
     public IRequestBuilder AddHeaders(IDictionary<string, string> headers) {
         foreach (var h in headers)
-            _request.Headers.TryAddWithoutValidation(h.Key, h.Value);
+            _headers[h.Key] = h.Value;
 
         return this;
     }
