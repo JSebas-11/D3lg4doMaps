@@ -1,5 +1,5 @@
+using D3lg4doMaps.Core.Public.Models.Geometry;
 using D3lg4doMaps.Places.Public.Models.Details.Utilities;
-using D3lg4doMaps.Places.Public.Models.Geometry;
 
 namespace D3lg4doMaps.Places.Public.Models.Details;
 
@@ -9,7 +9,7 @@ public sealed class PlaceDetails {
     public IReadOnlyList<string> Types { get; internal set; } = [];
     public string? FormattedAddress { get; internal set; }
     public string? GlobalCode { get; internal set; }
-    public GeoCenter? Location { get; internal set; }
+    public LatLng? Location { get; internal set; }
     public PostalAddress? PostalAddress { get; internal set; }
     public string? TimeZone { get; internal set; }
     public string? NationalPhoneNumber { get; internal set; }

@@ -1,9 +1,8 @@
-using System.Text.Json.Serialization;
+using D3lg4doMaps.Core.Public.Models.Geometry;
 
 namespace D3lg4doMaps.Places.Public.Models.Geometry;
 
 public sealed class GeoCircle {
-    [JsonPropertyName("center")]
-    public GeoCenter Center { get; internal set; } = new();
+    public LatLng Center { get; internal set; } = null!;
     public double Radius { get; internal set; }
 }

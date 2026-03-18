@@ -1,10 +1,10 @@
 using System.Text.Json;
 using D3lg4doMaps.Core.Public.Extensions;
+using D3lg4doMaps.Core.Public.Models.Geometry;
 using D3lg4doMaps.Places.Public.Models.Details;
 using D3lg4doMaps.Places.Public.Models.Details.Photos;
 using D3lg4doMaps.Places.Public.Models.Details.Reviews;
 using D3lg4doMaps.Places.Public.Models.Details.Utilities;
-using D3lg4doMaps.Places.Public.Models.Geometry;
 
 namespace D3lg4doMaps.Places.Internal.Mappers;
 
@@ -33,10 +33,10 @@ internal static class DetailsMapper {
         // LOCATION
         var location = root.GetObject("location");
         if (location is not null)
-            details.Location = new GeoCenter() {
-                Latitude = (double)location?.GetDoubleValue("latitude")!,
-                Longitude = (double)location?.GetDoubleValue("longitude")!
-            };
+            details.Location = new LatLng(
+                (double)location?.GetDoubleValue("latitude")!,
+                (double)location?.GetDoubleValue("longitude")!
+            );
 
         // POSTAL ADDRESS
         var postal = root.GetObject("postalAddress");

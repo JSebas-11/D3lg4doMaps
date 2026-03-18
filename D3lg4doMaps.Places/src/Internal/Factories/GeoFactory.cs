@@ -1,4 +1,5 @@
 using D3lg4doMaps.Core.Public.Exceptions;
+using D3lg4doMaps.Core.Public.Models.Geometry;
 using D3lg4doMaps.Places.Public.Models.Geometry;
 
 namespace D3lg4doMaps.Places.Internal.Factories;
@@ -12,7 +13,7 @@ internal static class GeoFactory {
         if (longitude is < -180 or > 180) throw new MapsInvalidRequestException("Longitude must be between -180 and 180.");  
         
         return new () {
-            Center = new () { Latitude = latitude, Longitude = longitude },
+            Center = new LatLng(latitude, longitude),
             Radius = radius
         };
     }
