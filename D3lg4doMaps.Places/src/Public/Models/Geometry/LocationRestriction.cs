@@ -1,8 +1,15 @@
-using System.Text.Json.Serialization;
-
 namespace D3lg4doMaps.Places.Public.Models.Geometry;
 
+/// <summary>
+/// Represents a geographic restriction applied to a Places request.
+/// </summary>
+/// <remarks>
+/// A location restriction strictly limits results to the specified area,
+/// ensuring that returned places fall within the defined boundary.
+/// </remarks>
 public sealed class LocationRestriction {
-    [JsonPropertyName("circle")]
+    /// <summary>
+    /// Gets the circular area used to restrict results.
+    /// </summary>
     public GeoCircle? Circle { get; internal set; }
 }
