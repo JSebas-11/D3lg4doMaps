@@ -5,6 +5,15 @@ A modern, strongly-typed C# SDK for Google Maps Platform (Places, Directions, Di
 D3lg4doMaps is a modular .NET SDK built to make Google Maps Platform integration clean, consistent, and easy to maintain.
 It abstracts the low-level HTTP logic, unifies configuration, and provides typed services for interacting with different Maps APIs.
 
+## 📚 Table of Contents
+
+- [📦 Packages](#-packages)
+  - [❤️ Core](#-core)
+  - [📍 Places](#-places)
+- [⚠ Error Handling](#-error-handling)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
 ## ✨ Features
 
 - 🔌 Dependency Injection ready
@@ -21,7 +30,7 @@ It abstracts the low-level HTTP logic, unifies configuration, and provides typed
 
 # 📦 Packages
 
-## 1. D3lg4doMaps.Core
+## ❤️ Core
 
 Provides the shared infrastructure used by all SDK modules, including:
 - 🌐 HTTP communication with Google Maps APIs
@@ -70,7 +79,7 @@ This model defines the structure used by the internal HTTP engine to communicate
 
 ---
 
-## D3lg4doMaps.Places
+## 📍 Places
 
 A high-level wrapper for the **Google Places API (New)**.
 
@@ -82,14 +91,12 @@ This module provides strongly-typed services, request builders, and models for i
 - 📍 **Nearby Search** – Discover places around a location
 - ✨ **Autocomplete** – Get place predictions while typing
 - 🏢 **Place Details** – Retrieve detailed information about a place
-- 📷 **Place Photos** – Access images associated with places
-- ⭐ **Place Reviews** – User ratings and review summaries
+- 📷 **Place Photos** – Retrieve place images
+- ⭐ **Place Reviews** – Access user reviews and AI summaries
 
 **Depends on: D3lg4doMaps.Core**
 
----
-
-# 🛠 Dependency Injection
+### 🛠 Dependency Injection
 
 Register the Places module alongside the Core SDK.
 
@@ -98,7 +105,64 @@ services.AddD3lg4doMaps(configuration);
 services.AddD3lg4doMapsPlaces();
 ```
 
-## 3. D3lg4doMaps.Routing (Planned)
+### 🧩 Services Overview
+
+The Places module exposes a unified entry point via **IPlacesService**
+
+Available services:
+- ✨ **IAutocompleteService** → Place suggestions
+- 🔎 **ISearchService** → Text & nearby search
+- 🏢 **IDetailsService** → Place details, photos, reviews
+
+### 🏗 Example Usage
+
+```csharp
+public class MyService {
+    private readonly IPlacesService _places;
+
+    public MyService(IPlacesService places) {
+        _places = places;
+    }
+
+    public async Task RunAsync() {
+        var results = await _places.Search.SearchByTextAsync("coffee shops");
+
+        var firstPlace = results.FirstOrDefault();
+        if (firstPlace?.PlaceId is not null) {
+            var details = await _places.Details.GetDetailsAsync(firstPlace.PlaceId);
+        }
+
+        var suggestions = await _places.Autocomplete.SuggestPlacesAsync(
+            new AutocompleteRequestBuilder()
+                .WithInput("pizza")
+                .WithLocationBias(5000, 40.7128, -74.0060)
+                .Build()
+        );
+    }
+}
+```
+
+### 🧱 Request Builders
+
+The SDK provides fluent builders to simplify request creation and enforce valid configurations:
+
+Available services:
+- 🧠 **AutocompleteRequestBuilder**
+- 📍 **NearbyRequestBuilder**
+- 📷 **PhotoRequestBuilder**
+
+Example:
+```csharp
+var request = new NearbyRequestBuilder()
+    .WithTypes(["restaurant"])
+    .WithLocationRestriction(500, 40.7128, -74.0060)
+    .WithMaxResults(5)
+    .Build();
+```
+    
+---
+
+## D3lg4doMaps.Routing (Planned)
 
 Unified access to:
 - Directions API
