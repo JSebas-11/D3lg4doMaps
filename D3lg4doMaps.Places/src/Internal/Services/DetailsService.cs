@@ -1,5 +1,6 @@
 using System.Text.Json;
 using D3lg4doMaps.Core.Public.Abstractions;
+using D3lg4doMaps.Core.Public.Enums;
 using D3lg4doMaps.Core.Public.Exceptions;
 using D3lg4doMaps.Core.Public.Extensions;
 using D3lg4doMaps.Core.Public.Models;
@@ -86,19 +87,22 @@ internal class DetailsService : IDetailsService {
 
     // -------------------- INNER METHS --------------------
     private static MapsApiRequest CreateRequest(
-        string endpoint, IDictionary<string, string>? headers = null, IDictionary<string, string>? query = null
+        string endpoint, 
+        IDictionary<string, string>? headers = null, IDictionary<string, string>? query = null,
+        bool keyInHeader = true
     )
         => new () {
             Method = HttpMethod.Get,
             BaseUrl = PlacesEndpoints.BaseUrl,
             Endpoint = endpoint,
+            ApiKeyLocation = keyInHeader ? ApiKeyLocation.Header : ApiKeyLocation.Query,
             Headers = headers,
             Query = query
         };
 
     private async Task<PlacePhoto> GetPhotoAndMapAsync(JsonElement photoDets, IDictionary<string, string> reqQuery) {
         var json = await _apiClient.SendAsync<JsonDocument>(
-            CreateRequest($"{photoDets.GetStringValue("name")!}/media", reqQuery)
+            CreateRequest($"{photoDets.GetStringValue("name")!}/media", query: reqQuery, keyInHeader: false)
         );
         
         return DetailsMapper.ToPlacePhoto(json, photoDets);

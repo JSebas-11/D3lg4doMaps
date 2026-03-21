@@ -1,3 +1,5 @@
+using D3lg4doMaps.Core.Public.Enums;
+
 namespace D3lg4doMaps.Core.Public.Models;
 
 /// <summary>
@@ -16,6 +18,19 @@ public sealed class MapsApiRequest {
     /// Defaults to <see cref="HttpMethod.Get"/>.
     /// </remarks>
     public HttpMethod Method { get; init; } = HttpMethod.Get;
+
+    /// <summary>
+    /// Gets the location where the API key will be included in the request.
+    /// </summary>
+    /// <remarks>
+    /// By default, the API key is sent in the request headers using the 
+    /// <c>X-Goog-Api-Key</c> header. Some endpoints (such as media/photo endpoints)
+    /// require the API key to be passed as a query parameter instead.
+    /// </remarks>
+    /// <example>
+    /// ApiKeyLocation.Header
+    /// </example>
+    public ApiKeyLocation ApiKeyLocation { get; init; } = ApiKeyLocation.Header;
 
     /// <summary>
     /// Gets the base URL of the API endpoint.

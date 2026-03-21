@@ -1,6 +1,7 @@
 using D3lg4doMaps.Core.Internal.Abstractions;
 using D3lg4doMaps.Core.Public.Abstractions;
 using D3lg4doMaps.Core.Public.Configuration;
+using D3lg4doMaps.Core.Public.Enums;
 using D3lg4doMaps.Core.Public.Models;
 
 namespace D3lg4doMaps.Core.Internal.Factories;
@@ -8,16 +9,19 @@ namespace D3lg4doMaps.Core.Internal.Factories;
 internal class RequestFactory : IRequestFactory {
     // -------------------- INIT --------------------
     private readonly Dictionary<string, string> _defaultConfig = [];
+    private readonly Dictionary<string, string> _keyInHeader = [];
+    private readonly Dictionary<string, string> _keyInQuery = [];
     private readonly MapsConfiguration _config;
     private readonly IRequestBuilder _builder;
 
     public RequestFactory(MapsConfiguration config, IRequestBuilder builder) {
         _builder = builder;
         _config = config;
-        _defaultConfig = new() { 
-            { "X-Goog-Api-Key", _config.ApiKey }, 
+        _defaultConfig = new() {
             { "Accept-Language", $"{_config.Language}-{_config.Region}" }
         };
+        _keyInHeader = new() { { "X-Goog-Api-Key", _config.ApiKey } };
+        _keyInQuery = new() { { "key", _config.ApiKey } };
     }
 
     // -------------------- METHS --------------------
@@ -36,6 +40,15 @@ internal class RequestFactory : IRequestFactory {
 
         if (request?.Payload is not null) 
             _builder.SetJsonPayload(request.Payload);
+
+        // Key inscription
+        switch (request?.ApiKeyLocation) {
+            case ApiKeyLocation.Query: _builder.AddQuery(_keyInQuery); break;
+            
+            case ApiKeyLocation.Header: 
+            default:
+                _builder.AddHeaders(_keyInHeader); break;
+        }
 
         return _builder.Build();
     }

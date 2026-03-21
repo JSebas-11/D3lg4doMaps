@@ -38,7 +38,11 @@ internal class SearchService : ISearchService {
     private async Task<IReadOnlyList<PlaceSearchResult>> SendAndMapAsync(MapsApiRequest request) {
         var response = await _apiClient.SendAsync<PlacesSearchResponse>(request);
 
-        return [.. response.Places.Select(PlaceMapper.ToSearchResult)];
+        return [.. 
+            response.Places
+            .Where(p => p is not null)
+            .Select(PlaceMapper.ToSearchResult)
+        ];
     }
 
     private static MapsApiRequest CreateRequest(string endpoint, object? payload = null)
