@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3lg4doMaps.Places", "D3lg4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3lg4doMaps.Tests", "D3lg4doMaps.Tests\D3lg4doMaps.Tests.csproj", "{29BEFE5F-79C0-46C0-9319-67A8A0E2B99E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3lg4doMaps.Routing", "D3lg4doMaps.Routing\D3lg4doMaps.Routing.csproj", "{12FFA23B-2BA1-45DD-BC90-475011B3135F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

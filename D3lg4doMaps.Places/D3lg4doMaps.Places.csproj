@@ -1,5 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
+    <PackageId>D3lg4doMaps.Places</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Sebastian Delgado (JSebas-11)</Authors>
+    <Company>None</Company>
+
+    <Description>
+    .NET client library for the Google Places API (New). Simplifies place search, details, autocomplete, and photo retrieval with a clean, strongly-typed API and seamless integration with dependency injection in ASP.NET Core.
+    </Description>
+    <PackageTags>
+    googlemaps;places;googleplaces;dotnet;aspnetcore;sdk;api-client;autocomplete;details,search;geolocation;maps;location;httpclient
+    </PackageTags>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/JSebas-11/D3lg4doMaps</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JSebas-11/D3lg4doMaps</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\D3lg4doMaps.Core\D3lg4doMaps.Core.csproj" />
   </ItemGroup>
@@ -7,12 +36,5 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
 
 </Project>
