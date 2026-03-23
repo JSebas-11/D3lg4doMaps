@@ -1,5 +1,4 @@
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Routing.Public.Models.Routing;
+using D3lg4doMaps.Routing.Public.Models.Utilities;
 
 namespace D3lg4doMaps.Routing.Public.Models.Common;
 

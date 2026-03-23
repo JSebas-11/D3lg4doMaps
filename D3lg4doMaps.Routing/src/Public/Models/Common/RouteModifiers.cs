@@ -1,7 +1,6 @@
-using D3lg4doMaps.Routing.Public.Enums;
-using D3lg4doMaps.Routing.Public.Models.Travel;
+using D3lg4doMaps.Routing.Public.Models.Utilities;
 
-namespace D3lg4doMaps.Routing.Public.Models.Routing;
+namespace D3lg4doMaps.Routing.Public.Models.Common;
 
 public sealed class RouteModifiers {
     public bool AvoidTolls { get; private set; } = false;
