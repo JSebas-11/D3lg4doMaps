@@ -1,6 +1,6 @@
 using D3lg4doMaps.Routing.Public.Enums;
 
-namespace D3lg4doMaps.Routing.Public.Models.Utilities;
+namespace D3lg4doMaps.Routing.Public.Models.Components;
 
 public sealed class VehicleInfo {
     public VehicleEmissionType EmissionType { get; }

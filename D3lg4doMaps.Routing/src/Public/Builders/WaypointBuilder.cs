@@ -1,7 +1,7 @@
 using D3lg4doMaps.Core.Public.Exceptions;
 using D3lg4doMaps.Core.Public.Models.Geometry;
 using D3lg4doMaps.Routing.Public.Models.Common;
-using D3lg4doMaps.Routing.Public.Models.Utilities;
+using D3lg4doMaps.Routing.Public.Models.Components;
 
 namespace D3lg4doMaps.Routing.Public.Builders;
 

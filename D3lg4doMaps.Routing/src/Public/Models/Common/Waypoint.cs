@@ -1,4 +1,4 @@
-using D3lg4doMaps.Routing.Public.Models.Utilities;
+using D3lg4doMaps.Routing.Public.Models.Components;
 
 namespace D3lg4doMaps.Routing.Public.Models.Common;
 
