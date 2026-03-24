@@ -6,6 +6,6 @@ public enum PolylineQuality {
 }
 
 public enum PolylineEncoding {
-    EncodedPolyline,
-    GeoJsonLinestring
+    EncodedPolyline
+    // GeoJsonLinestring
 }

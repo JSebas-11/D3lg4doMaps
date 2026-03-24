@@ -31,6 +31,12 @@ public sealed class RouteRequestBuilder {
 
         if (_arrivalTime is not null && _departureTime is not null)
             throw new MapsInvalidRequestException("Only one of ArrivalTime or DepartureTime can be set.");
+        
+        if (_optimizeWaypointOrder == true && _intermediates.Count == 0)
+            throw new MapsInvalidRequestException("OptimizeWaypointOrder requires providing Intermediates.");
+        
+        if (_intermediates.Count > 25)
+            throw new MapsInvalidRequestException("Maximum 25 Intermediates are allowed.");
 
         if (WaypointsContainsHeading()) 
             if (_travelMode != TravelMode.Drive && _travelMode != TravelMode.TwoWheeler)

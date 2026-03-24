@@ -14,3 +14,10 @@ public enum VehicleEmissionType {
     Hybrid,
     Diesel
 }
+
+public enum Speed {
+    Normal,
+    Slow,
+    TrafficJam,
+    Unknown
+}
