@@ -2,208 +2,83 @@
 
 A modern, strongly-typed C# SDK for Google Maps Platform (Places, Directions, Distance Matrix, and more).
 
-D3lg4doMaps is a modular .NET SDK built to make Google Maps Platform integration clean, consistent, and easy to maintain.
-It abstracts the low-level HTTP logic, unifies configuration, and provides typed services for interacting with different Maps APIs.
+---
 
-## 📚 Table of Contents
+## 🚀 Why D3lg4doMaps?
 
-- [📦 Packages](#-packages)
-  - [❤️ Core](#-core)
-  - [📍 Places](#-places)
-- [⚠ Error Handling](#-error-handling)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+Working with Google Maps APIs directly can be verbose and error-prone.
 
-## ✨ Features
+D3lg4doMaps provides:
 
-- 🔌 Dependency Injection ready
-- 🚀 Unified HTTP engine (builders, factories, serializer)
-- 🔐 Automatic authentication headers
-- 🌍 Language & region defaults
-- 📡 Strongly typed requests/responses
-- 🛠 Custom exception mapping
-- 📜 Centralized configuration
-- 🪵 Structured logging integration
-- 🧱 Modular architecture (Core, Places, Routing, …)
+- Strongly-typed models
+- Clean abstractions
+- Fluent request builders
+- Modular architecture (Core, Places, Routing)
+
+---
+
+## 📚 Documentation
+
+👉 Full documentation: https://jsebas-11.github.io/D3lg4doMaps/
+
+Includes:
+
+- Getting Started
+- Configuration
+- Places (Search, Autocomplete, Details)
+- Routing (coming soon)
+- Advanced usage
+
+---
+
+## ⚡ Quick Example
+
+```csharp
+var services = new ServiceCollection();
+
+services.AddD3lg4doMaps(new MapsConfiguration {
+    ApiKey = "YOUR_API_KEY"
+});
+services.AddD3lg4doMapsPlaces();
+
+var provider = services.BuildServiceProvider();
+var places = provider.GetRequiredService<IPlacesService>();
+
+var results = await places.Search.SearchByTextAsync("coffee near me");
+```
+
+
+---
+
+## 📦 Installation
+
+```bash
+dotnet add package D3lg4doMaps.Core
+dotnet add package D3lg4doMaps.Places
+```
 
 --- 
 
-# 📦 Packages
+## 🧩 Modules
 
-## ❤️ Core
-
-Provides the shared infrastructure used by all SDK modules, including:
-- 🌐 HTTP communication with Google Maps APIs
-- 🧱 Request building and execution
-- 🔄 JSON serialization
-- ⚙️ Centralized configuration
-- 🚨 Exception mapping
-- 🪵 Logging integration (logging pipeline planned)
-
-⚠ Note: This package is **not intended to be used standalone.**
-Instead, it acts as the foundation for higher-level modules such as d3lg4doMaps.Places and d3lg4doMaps.Routing
-
-
-### 🛠 Configuration & Dependency Injection
-The SDK is configured using MapsConfiguration and integrates seamlessly with the ASP.NET Core dependency injection system.
-
-Register the SDK in your Program.cs or Startup.cs:
-```csharp
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY",
-    Language = "en",
-    Region = "US",
-    TimeOutSeconds = 30,
-});
-```
-| Property |	Description |
-| --- | --- |
-| ApiKey |	Google Maps Platform API key |
-| Language |	Default language for API responses |
-| Region	| Regional bias for results |
-| TimeOutSeconds |	HTTP request timeout |
-
-### 📡 MapsApiRequest
-
-All API calls in the SDK are represented by the MapsApiRequest model.
-This model defines the structure used by the internal HTTP engine to communicate with Google Maps APIs.
-
-| Property |	Description |
-| --- | --- |
-| Method |	HTTP method used for the request |
-| BaseUrl |	Google Maps API base URL |
-| Endpoint	| Specific API endpoint |
-| Headers |	Request headers |
-| Query |	Request body |
-| Payload |	Optional query parameters |
+- Core → Configuration, HTTP, infrastructure  
+- Places → Search, Autocomplete, Details  
+- Routing → Directions, DistanceMatrix *(coming soon)*  
 
 ---
 
-## 📍 Places
+## 🤝 Contributing
 
-A high-level wrapper for the **Google Places API (New)**.
-
-This module provides strongly-typed services, request builders, and models for interacting with place data such as search results, autocomplete suggestions, and place details.
-
-### Features
-
-- 🔎 **Text Search** – Find places using natural text queries
-- 📍 **Nearby Search** – Discover places around a location
-- ✨ **Autocomplete** – Get place predictions while typing
-- 🏢 **Place Details** – Retrieve detailed information about a place
-- 📷 **Place Photos** – Retrieve place images
-- ⭐ **Place Reviews** – Access user reviews and AI summaries
-
-**Depends on: D3lg4doMaps.Core**
-
-### 🛠 Dependency Injection
-
-Register the Places module alongside the Core SDK.
-
-```csharp
-services.AddD3lg4doMaps(configuration);
-services.AddD3lg4doMapsPlaces();
-```
-
-### 🧩 Services Overview
-
-The Places module exposes a unified entry point via **IPlacesService**
-
-Available services:
-- ✨ **IAutocompleteService** → Place suggestions
-- 🔎 **ISearchService** → Text & nearby search
-- 🏢 **IDetailsService** → Place details, photos, reviews
-
-### 🏗 Example Usage
-
-```csharp
-public class MyService {
-    private readonly IPlacesService _places;
-
-    public MyService(IPlacesService places) {
-        _places = places;
-    }
-
-    public async Task RunAsync() {
-        var results = await _places.Search.SearchByTextAsync("coffee shops");
-
-        var firstPlace = results.FirstOrDefault();
-        if (firstPlace?.PlaceId is not null) {
-            var details = await _places.Details.GetDetailsAsync(firstPlace.PlaceId);
-        }
-
-        var suggestions = await _places.Autocomplete.SuggestPlacesAsync(
-            new AutocompleteRequestBuilder()
-                .WithInput("pizza")
-                .WithLocationBias(5000, 40.7128, -74.0060)
-                .Build()
-        );
-    }
-}
-```
-
-### 🧱 Request Builders
-
-The SDK provides fluent builders to simplify request creation and enforce valid configurations:
-
-Available services:
-- 🧠 **AutocompleteRequestBuilder**
-- 📍 **NearbyRequestBuilder**
-- 📷 **PhotoRequestBuilder**
-
-Example:
-```csharp
-var request = new NearbyRequestBuilder()
-    .WithTypes(["restaurant"])
-    .WithLocationRestriction(500, 40.7128, -74.0060)
-    .WithMaxResults(5)
-    .Build();
-```
-    
----
-
-## D3lg4doMaps.Routing (Planned)
-
-Unified access to:
-- Directions API
-- Distance Matrix API
-
-Planned features:
-- Route calculations
-- Traffic-aware routing
-- Distance/time matrix queries
-- Support for modes, waypoints, alternatives
+Contributions, issues, and feature requests are welcome!
 
 ---
 
-# ⚠ Error Handling
-
-The SDK maps common Google Maps errors into custom exceptions:
-| HTTP Code |	Exception |
-| --- | --- |
-| 401/403 |	MapsApiAuthException |
-| 404 |	MapsNotFoundException |
-| 400	| MapsInvalidRequestException |
-| 429 |	MapsRateLimitException |
-| Others |	MapsApiException |
-
----
-
-# 🤝 Contributing
-Contributions are welcome!
-- Open issues
-- Submit PRs
-- Suggest improvements
-- Propose new modules
-
----
-
-# 📄 License
+## 📄 License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
-# 🙌 Credits
+## 🙌 Credits
 Created & maintained by JSebas-11 (Sebastian Delgado)
 Designed for clean architecture, developer ergonomics, and real-world Maps integrations.
 
