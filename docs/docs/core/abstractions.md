@@ -77,7 +77,7 @@ public interface IRequestFactory {
 
 ### ⚙️ Responsibilities
 
-- Convert [MapsApiRequest](Models#-mapsapirequest) into `HttpRequestMessage`
+- Convert [MapsApiRequest](models#-mapsapirequest) into `HttpRequestMessage`
 - Configure:
     - URL
     - HTTP method
@@ -110,9 +110,9 @@ In most cases, **you do not need to interact with these abstractions directly.**
 Instead, use higher-level services like:
 
 - **IPlacesService** (ISearchService, IAutocompleteService, IDetailsService)  
-👉 See: [IPlacesService](/docs/places/Abstractions.md#-iplacesservice)
+👉 See: [IPlacesService](/docs/places/abstractions.md#-iplacesservice)
 - **IRoutingService** (IDirectionsService, IDistanceMatrixService)  
-👉 See: []()
+👉 See:
 
 Use these abstractions only if you need:
 

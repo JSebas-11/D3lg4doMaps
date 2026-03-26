@@ -18,7 +18,7 @@ It is commonly used to power:
 
 This feature is exposed through:
 
-👉 [IAutocompleteService](/docs/places/Abstractions.md#-iautocompleteservice)
+👉 [IAutocompleteService](/docs/places/abstractions.md#-iautocompleteservice)
 
 ---
 
@@ -136,7 +136,7 @@ var request = new AutocompleteRequestBuilder()
 
 #### ⚠️ Validation
 
-- Throws [MapsInvalidRequestException](/docs/core/Exceptions.md#️-mapsinvalidrequestexception) if:
+- Throws [MapsInvalidRequestException](/docs/core/exceptions.md#️-mapsinvalidrequestexception) if:
     - Input is null, empty, or whitespace
     - Build is called without setting input
 

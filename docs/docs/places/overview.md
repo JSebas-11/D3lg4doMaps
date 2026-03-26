@@ -30,7 +30,7 @@ The module is built around a set of focused services:
 - `IDetailsService` → Rich place data (details, photos, reviews)  
 - `IPlacesService` → Unified entry point for all services  
 
-> 👉 See: [Abstractions](/docs/places/Abstractions.md)
+> 👉 See: [Abstractions](/docs/places/abstractions.md)
 
 ---
 
@@ -64,10 +64,10 @@ var results = await places.Search.SearchByTextAsync("coffee near Medellin");
 
 ## 🔗 Next Steps
 
-- 👉 Autocomplete → [AutocompleteService](/docs/places/services/Autocomplete.md)
-- 👉 Search → [SearchService](/docs/places/services/Search.md)
-- 👉 Details → [DetailsService](/docs/places/services/Details.md)
-- 👉 Dependency Injection → [Places Injection](/docs/places/Extensions.md#-dependency-injection)
+- 👉 Autocomplete → [AutocompleteService](/docs/places/services/autocomplete.md)
+- 👉 Search → [SearchService](/docs/places/services/search.md)
+- 👉 Details → [DetailsService](/docs/places/services/details.md)
+- 👉 Dependency Injection → [Places Injection](/docs/places/extensions.md#-dependency-injection)
 
 ---
 

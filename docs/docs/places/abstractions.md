@@ -62,12 +62,12 @@ public interface IAutocompleteService {
 - Retrieve predicted places from partial input
 - Support search-as-you-type scenarios
 
-👉 See: [AutocompleteRequest](services/Autocomplete.md#autocompleterequest)
+👉 See: [AutocompleteRequest](services/autocomplete.md#autocompleterequest)
 
 ### 🧠 Notes
 
 - Useful for UI inputs (search bars, forms)
-- Returns lightweight suggestion models -> see [PlaceSuggestion](services/Autocomplete.md#placesuggestion)
+- Returns lightweight suggestion models -> see [PlaceSuggestion](services/autocomplete.md#placesuggestion)
 
 ---
 
@@ -89,12 +89,12 @@ public interface ISearchService {
 ### ⚙️ Responsibilities
 
 - Perform text-based searches
-- Perform location-based (nearby) searches -> see [NearbyRequest](services/Search.md#nearbyrequest)
+- Perform location-based (nearby) searches -> see [NearbyRequest](services/search.md#nearbyrequest)
 
 ### 🧠 Notes
 
 - Covers the most common discovery scenarios
-- Returns structured search results -> see [PlaceSearchResult](services/Search.md#placesearchresult)
+- Returns structured search results -> see [PlaceSearchResult](services/search.md#placesearchresult)
 
 ---
 
@@ -113,9 +113,9 @@ public interface IDetailsService {
 
 ### ⚙️ Responsibilities
 
-- Retrieve **structured place details** -> see [PlaceDetails](services/Details.md#placedetails)
+- Retrieve **structured place details** -> see [PlaceDetails](services/details.md#placedetails)
 - Provide raw JSON access for **advanced scenarios**
-- Fetch photos and reviews -> see [PlacePhoto](services/Details#placephoto) - [PlaceReviews](services/Details#placereviews)
+- Fetch photos and reviews -> see [PlacePhoto](services/details#placephoto) - [PlaceReviews](services/details#placereviews)
 
 ### 🧠 Notes
 

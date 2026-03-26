@@ -54,11 +54,11 @@ services.AddD3lg4doMaps(new MapsConfiguration {
 
 ### ⚠️ Validation
 
-Throws [MapsApiAuthException](Exceptions#-mapsapiauthexception) if `ApiKey` is null or empty
+Throws [MapsApiAuthException](exceptions#-mapsapiauthexception) if `ApiKey` is null or empty
 
 ### 🧠 Notes
 
-- [MapsConfiguration](Configuration#-mapsconfiguration) is registered as a **singleton**
+- [MapsConfiguration](configuration#-mapsconfiguration) is registered as a **singleton**
 - `HttpClient` is configured with the provided timeout
 - Services use a mix of:
     - Singleton → shared configuration and utilities

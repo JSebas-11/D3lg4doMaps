@@ -66,7 +66,7 @@ public sealed class MapsLoggingOptions {
 
 ## ⚡ Basic Setup
 
-👉 [Dependency Injection](Extensions#-dependency-injection)
+👉 [Dependency Injection](extensions#-dependency-injection)
 
 ```csharp
 var services = new ServiceCollection();

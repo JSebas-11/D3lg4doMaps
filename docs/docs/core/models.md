@@ -36,7 +36,7 @@ public sealed class MapsApiRequest {
 | Property         | Description                                    |
 |:---------------- |:---------------------------------------------- |
 | `Method`         | HTTP method (default: GET)                     |
-| `ApiKeyLocation` | Where the API key is sent -> see [LocationEnum](Enums#-apikeylocation) |
+| `ApiKeyLocation` | Where the API key is sent -> see [LocationEnum](enums#-apikeylocation) |
 | `BaseUrl`        | Base API URL                                   |
 | `Endpoint`       | Relative endpoint path                         |
 | `Headers`        | Optional request headers                       |

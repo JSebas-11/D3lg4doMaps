@@ -13,7 +13,7 @@ The **Search feature** allows you to find places using either:
 
 This feature is exposed through:
 
-👉 See: [ISearchService](/docs/places/Abstractions.md#-isearchservice)
+👉 See: [ISearchService](/docs/places/abstractions.md#-isearchservice)
 
 ---
 
@@ -84,7 +84,7 @@ public sealed class PlaceSearchResult {
 | `Types`       | Associated place types         |
 
 
-> 💡 Use [IDetailsService](/docs/places/Abstractions.md#-idetailsservice) if you need richer information.
+> 💡 Use [IDetailsService](/docs/places/abstractions.md#-idetailsservice) if you need richer information.
 
 ---
 

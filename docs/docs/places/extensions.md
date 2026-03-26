@@ -9,7 +9,7 @@ The **Places module** integrates with .NET dependency injection through an exten
 This registers all services required to interact with the Google Places API.
 
 > ⚠️ Core must be registered first  
-> 👉 See: [Core Dependency Injection](/docs/core/Extensions.md#-dependency-injection)
+> 👉 See: [Core Dependency Injection](/docs/core/extensions.md#-dependency-injection)
 
 Registers all Places services into the DI container.
 
@@ -32,7 +32,7 @@ services.AddD3lg4doMapsPlaces();
 
 ### ⚠️ Validation
 
-Places depends on Core (HTTP, config, serializartion), therefore this method validates that Core services are already registered. If not, it throws [MapsApiException](/docs/core/Exceptions.md#-mapsapiexception)
+Places depends on Core (HTTP, config, serializartion), therefore this method validates that Core services are already registered. If not, it throws [MapsApiException](/docs/core/exceptions.md#-mapsapiexception)
 
 ### 🧠 Notes
 

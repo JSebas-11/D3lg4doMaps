@@ -17,7 +17,7 @@ It allows you to retrieve:
 
 This feature is exposed through:
 
-👉 See: [IDetailsService](/docs/places/Abstractions.md#-idetailsservice)
+👉 See: [IDetailsService](/docs/places/abstractions.md#-idetailsservice)
 
 ---
 
@@ -128,7 +128,7 @@ public sealed class PlaceDetails {
 #### 🧠 Includes
 
 - **Basic info** → id, name, types, address (formatted and detailed -> see [PostalAddress](#postaladdress))
-- **Location** → timezone, coordinates exposed by [LatLng](/docs/core/Models.md#-latlng) Core object
+- **Location** → timezone, coordinates exposed by [LatLng](/docs/core/models.md#-latlng) Core object
 - **Contact** → phone numbers
 - **Ratings** → score, user count and price level
 - **Extras**
@@ -385,5 +385,5 @@ public sealed class PhotoRequestBuilder {
 - **Defaults are applied** if no configuration is provided:
     - 10 photos
     - 480x480 resolution
-- Validation is enforced through [MapsInvalidRequestException](/docs/core/Exceptions.md#️-mapsinvalidrequestexception)
+- Validation is enforced through [MapsInvalidRequestException](/docs/core/exceptions.md#️-mapsinvalidrequestexception)
 - Designed to keep photo requests safe and within API limits
