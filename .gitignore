@@ -35,6 +35,7 @@ obj/
 
 # IDE
 .vs/
+.idea/
 
 # Optional: keep shared VSCode config
 .vscode/*
