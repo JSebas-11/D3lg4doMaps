@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("D3lg4doMaps.Places")]
+[assembly: InternalsVisibleTo("D3lg4doMaps.Routes")]
 [assembly: InternalsVisibleTo("D3lg4doMaps.Tests")]

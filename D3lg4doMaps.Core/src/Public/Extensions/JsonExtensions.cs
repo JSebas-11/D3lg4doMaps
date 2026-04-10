@@ -126,4 +126,20 @@ public static class JsonExtensions {
         foreach (var item in value.EnumerateArray())
             yield return item;
     }
+    
+    /// <summary>
+    /// Retrieves a JSON array property and extracts its non-null, non-empty string values.
+    /// </summary>
+    /// <param name="json">The JSON element containing the array property.</param>
+    /// <param name="prop">The name of the array property.</param>
+    /// <returns>
+    /// A <see cref="List{String}"/> containing all non-null and non-whitespace string values
+    /// from the specified array property; otherwise, an empty list if the property is missing,
+    /// not an array, or contains no valid string values.
+    /// </returns>
+    public static List<string> GetArrayStringValues(this JsonElement json, string prop)
+        => [.. json.GetArray(prop)
+            .Select(s => s.GetString())
+            .Where(s => !string.IsNullOrWhiteSpace(s))
+            .Select(s => s!) ];
 }

@@ -1,5 +1,5 @@
 using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Details.Utilities;
+using D3lg4doMaps.Places.Public.Models.Details.Components;
 
 namespace D3lg4doMaps.Places.Public.Models.Details;
 

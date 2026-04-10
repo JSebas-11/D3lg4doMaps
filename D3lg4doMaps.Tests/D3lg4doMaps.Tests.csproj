@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\D3lg4doMaps.Places\D3lg4doMaps.Places.csproj" />
     <ProjectReference Include="..\D3lg4doMaps.Core\D3lg4doMaps.Core.csproj" />
+    <ProjectReference Include="..\D3lg4doMaps.Routes\D3lg4doMaps.Routes.csproj" />
   </ItemGroup>
 
 </Project>

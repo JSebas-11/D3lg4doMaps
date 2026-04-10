@@ -41,6 +41,16 @@ public interface IDetailsService {
     /// <remarks>
     /// This method is useful for accessing fields not yet mapped by the SDK
     /// or for debugging API responses.
+    ///
+    /// ⚠ <b>Important:</b> The returned <see cref="JsonDocument"/> is <see cref="IDisposable"/>.
+    /// Consumers are responsible for properly disposing it to avoid memory leaks.
+    /// 
+    /// <example>
+    /// <code>
+    /// using var json = await detailsService.GetDetailsRawAsync(placeId);
+    /// var root = json.RootElement;
+    /// </code>
+    /// </example>
     /// </remarks>
     Task<JsonDocument> GetDetailsRawAsync(string placeId, params string[] fields);
 

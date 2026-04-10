@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Details.Utilities;
+namespace D3lg4doMaps.Places.Public.Models.Details.Components;
 
 /// <summary>
 /// Represents a collection of useful Google Maps links related to a place.

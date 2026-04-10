@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Details.Utilities;
+namespace D3lg4doMaps.Places.Public.Models.Details.Components;
 
 /// <summary>
 /// Represents a structured postal address information.
