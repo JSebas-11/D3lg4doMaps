@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\D3lg4doMaps.Core\D3lg4doMaps.Core.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
     <AssemblyName>D3lg4doMaps.Routes</AssemblyName>
     <RootNamespace>D3lg4doMaps.Routes</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\D3lg4doMaps.Core\D3lg4doMaps.Core.csproj" />
+  </ItemGroup>
 
 </Project>

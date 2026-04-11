@@ -3,9 +3,24 @@ using D3lg4doMaps.Routes.Public.Enums;
 
 namespace D3lg4doMaps.Routes.Public.Models.Requests.Common;
 
+/// <summary>
+/// Represents vehicle-specific information used for route calculation.
+/// </summary>
+/// <remarks>
+/// This is primarily used to influence routing decisions such as emissions-based restrictions.
+/// </remarks>
 public sealed class VehicleInfo {
+    /// <summary>
+    /// Gets the emission type of the vehicle.
+    /// </summary>
     public VehicleEmissionType EmissionType { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="VehicleInfo"/> class.
+    /// </summary>
+    /// <param name="emissionType">
+    /// The emission type of the vehicle.
+    /// </param>
     public VehicleInfo(VehicleEmissionType emissionType) 
         => EmissionType = emissionType;
 

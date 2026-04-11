@@ -253,6 +253,6 @@ internal static class DirectionsMapper {
     public static NavigationInstruction ToNavigationInstruction(JsonElement json)
         => new () {
             Maneuver = json.GetStringValue("maneuver"),
-            Instructions = json.GetStringValue("instructions")
+            Instruction = json.GetStringValue("instructions")
         };
 }

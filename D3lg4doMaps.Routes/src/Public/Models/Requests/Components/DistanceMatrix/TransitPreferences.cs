@@ -3,10 +3,33 @@ using D3lg4doMaps.Routes.Public.Enums;
 
 namespace D3lg4doMaps.Routes.Public.Models.Requests.Components;
 
+/// <summary>
+/// Represents preferences used when routing with transit travel mode.
+/// </summary>
+/// <remarks>
+/// Allows specifying allowed transit modes and routing preferences
+/// such as minimizing walking or transfers.
+/// </remarks>
 public sealed class TransitPreferences {
+    /// <summary>
+    /// Gets the list of allowed transit travel modes.
+    /// </summary>
     public IReadOnlyList<TransitTravelMode> AllowedTravelModes { get; } = [];
+    
+    /// <summary>
+    /// Gets the routing preference for transit.
+    /// </summary>
     public TransitRoutingPreference? RoutingPreference { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TransitPreferences"/> class.
+    /// </summary>
+    /// <param name="transitTravelModes">
+    /// The allowed transit travel modes.
+    /// </param>
+    /// <param name="transitRoutingPreference">
+    /// Optional routing preference.
+    /// </param>
     public TransitPreferences(
         List<TransitTravelMode> transitTravelModes,
         TransitRoutingPreference? transitRoutingPreference = null
