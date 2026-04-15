@@ -25,6 +25,7 @@ Defines a client responsible for sending requests to a Maps API endpoint.
 ```csharp
 public interface IMapsApiClient {
     Task<T> SendAsync<T>(MapsApiRequest apiRequest);
+    Task<StreamResponse> SendStreamAsync(MapsApiRequest apiRequest);
 }
 ```
 
@@ -33,11 +34,13 @@ public interface IMapsApiClient {
 - Execute HTTP requests
 - Handle request/response lifecycle
 - Deserialize responses into strongly-typed models
+- Support **streaming responses** for high-throughput endpoints
 
 ### 🧠 Notes
 
 - This is the **core entry point for all API communication**
-- Used internally by higher-level services (e.g., Places, Routing)
+- Used internally by higher-level services (Places, Routes)
+- `SendStreamAsync` is used for endpoints that return **multiple JSON objects** (e.g., Compute Route Matrix)
 
 ---
 
@@ -49,6 +52,7 @@ Provides JSON serialization and deserialization functionality.
 public interface IMapsJsonSerializer {
     string Serialize(object value);
     T? Deserialize<T>(string json);
+    IAsyncEnumerable<T> DeserializeStreamAsync<T>(StreamResponse response);
 }
 ```
 
@@ -57,11 +61,16 @@ public interface IMapsJsonSerializer {
 - Serialize request payloads
 - Deserialize API responses
 - Abstract JSON library choice
+- Deserialize streamed **JSON responses incrementally**
 
 ### 🧠 Notes
 
+- Supports both **single-response** and **streaming scenarios**
 - Allows replacing the default serializer (e.g., System.Text.Json, Newtonsoft.Json)
 - Ensures consistent JSON handling across the SDK
+- `DeserializeStreamAsync` enables processing large responses without loading everything into memory
+- The serializer **owns the lifecycle of the stream** in streaming scenarios
+- When using `JsonDocument`, each item must be manually disposed
 
 ---
 
@@ -97,9 +106,10 @@ public interface IRequestFactory {
 
 These abstractions follow a few key principles:
 
-- Separation of concerns → each interface has a **single responsibility**
-- Extensibility → can be replaced or customized if needed
-- Testability → easy to mock in unit tests
+- **Separation of concerns** → each interface has a **single responsibility**
+- **Extensibility** → can be replaced or customized if needed
+- **Performance-aware** → streaming support avoids large memory allocations
+- **Testability** → easy to mock in unit tests
 
 ---
 
@@ -119,3 +129,4 @@ Use these abstractions only if you need:
 - Custom HTTP handling
 - Custom serialization behavior
 - Advanced SDK extension
+- Extending the SDK with new endpoints

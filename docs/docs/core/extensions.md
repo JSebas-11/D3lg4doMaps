@@ -87,6 +87,7 @@ public static class JsonExtensions {
     public static bool? GetBool(this JsonElement element, string prop) { ... }
     public static string? GetStringValue(this JsonElement element, string prop) { ... }
     public static IEnumerable<JsonElement> GetArray(this JsonElement element, string prop) { ... }
+    public static List<string> GetArrayStringValues(this JsonElement json, string prop) { ... }
 }
 ```
 
@@ -102,6 +103,7 @@ public static class JsonExtensions {
 var name = element.GetStringValue("name");
 var rating = element.GetDoubleValue("rating");
 var reviews = element.GetArray("reviews");
+var names = element.GetArrayStringValues("names");
 ```
 
 ### 🧠 Notes

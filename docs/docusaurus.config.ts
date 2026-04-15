@@ -78,7 +78,7 @@ const config: Config = {
           items: [
             { label: 'Core', to: '/docs/core/overview' },
             { label: 'Places', to: '/docs/places/overview' },
-            { label: 'Routing', to: '/docs/routing/overview' }
+            { label: 'Routes', to: '/docs/routes/overview' }
           ],
         },
         {

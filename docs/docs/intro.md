@@ -22,7 +22,7 @@ Working directly with Google Maps APIs can be:
 D3lg4doMaps solves this by:
 
 - ✅ Centralizing configuration in a Core module  
-- ✅ Providing high-level services (Places, Routing, etc.)  
+- ✅ Providing high-level services (Places, Routes, etc.)  
 - ✅ Enforcing clean architecture and best practices  
 - ✅ Offering a fluent and developer-friendly API  
 
@@ -34,7 +34,7 @@ D3lg4doMaps is built around a **Core-first architecture**:
 
 - **Core** → Configuration, HTTP handling, shared infrastructure  
 - **Places** → Search, Autocomplete, Details, Reviews, Photos  
-- **Routing** → Directions, DistanceMatrix *(coming soon)*  
+- **Routes** → Compute Routes (Directions), Compute Route Matrix (DistanceMatrix)
 
 All feature modules depend on Core, ensuring consistency and simplicity.
 
@@ -43,17 +43,38 @@ All feature modules depend on Core, ensuring consistency and simplicity.
 ## ⚡ Quick Example
 
 ```csharp
+// CONFIGURATION
 var services = new ServiceCollection();
 
 services.AddD3lg4doMaps(new MapsConfiguration {
     ApiKey = "YOUR_API_KEY"
 });
 services.AddD3lg4doMapsPlaces();
+services.AddD3lg4doMapsRoutes();
 
 var provider = services.BuildServiceProvider();
-var places = provider.GetRequiredService<IPlacesService>();
 
-var result = await places.Search.SearchByTextAsync("coffee near me");
+// PLACES
+var places = provider.GetRequiredService<IPlacesService>();
+var result1 = await places.Search.SearchByTextAsync("medellin, co");
+var result2 = await places.Search.SearchByTextAsync("bogota, co");
+
+// ROUTES
+var routes = provider.GetRequiredService<IRoutesService>();
+
+var origin = new WaypointBuilder()
+    .FromPlaceId(result1[0].PlaceId!)
+    .Build();
+var destination = new WaypointBuilder()
+    .FromPlaceId(result2[0].PlaceId!)
+    .Build();
+
+var request = new RouteRequestBuilder()
+    .From(origin)
+    .To(destination)
+    .Build();
+
+var computeRoutes = routes.Directions.GetRoutesAsync(request);
 ```
 
 ---
@@ -65,6 +86,7 @@ Install via NuGet:
 ```bash
 dotnet add package D3lg4doMaps.Core
 dotnet add package D3lg4doMaps.Places
+dotnet add package D3lg4doMaps.Routes
 ```
 
 ---
@@ -72,7 +94,8 @@ dotnet add package D3lg4doMaps.Places
 ## 🛠️ Next Steps
 
 - 👉 Configure Core → [Core Overview](core/overview)
-- 👉 Start using Places → [Places Overview](places/overview)
+- 👉 Explore Places → [Places Overview](places/overview)
+- 👉 Explore Routes → [Routes Overview](routes/overview)
 
 ---
 

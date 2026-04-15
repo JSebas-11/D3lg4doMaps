@@ -76,6 +76,7 @@ Core contracts that define how the SDK works internally:
 Shared data structures used across the SDK:
 
 - `MapsApiRequest`
+- `StreamResponse`
 - `LatLng`
 
 👉 See: [Models](models)
@@ -161,4 +162,4 @@ Core is built around a few key ideas:
 Now that Core is configured, you can start using a feature module:
 
 - 👉 See: [Places Overview](/docs/places/overview)
-- 👉 See: [Routing Overview](/docs/routing/overview)
+- 👉 See: [Routes Overview](/docs/routes/overview)
