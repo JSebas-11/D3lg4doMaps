@@ -3,6 +3,12 @@ sidebar_position: 1
 title: Introduction
 ---
 
+:::info Namespace update (v2.0.0)
+Namespaces were changed, update your `using` statements accordingly.
+
+👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
+:::
+
 # D3lg4doMaps
 
 **D3lg4doMaps** is a modern, modular .NET SDK that simplifies interaction with Google Maps APIs.

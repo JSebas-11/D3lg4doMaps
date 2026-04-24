@@ -14,7 +14,7 @@ These models represent:
 
 ---
 
-## 📁 Namespace: D3lg4doMaps.Core.Public.Models
+## 📁 Namespace: DelgadoMaps.Core.Models
 
 ### 🧾 MapsApiRequest
 
@@ -46,7 +46,7 @@ public sealed class MapsApiRequest {
 
 ---
 
-## 📁 Namespace: D3lg4doMaps.Core.Public.Models.Http
+## 📁 Namespace: DelgadoMaps.Core.Models.Http
 
 ### 🌊 StreamResponse
 
@@ -83,7 +83,7 @@ await using var response = await client.SendStreamAsync(request);
 
 ---
 
-## 📁 Namespace: D3lg4doMaps.Core.Public.Models.Geometry
+## 📁 Namespace: DelgadoMaps.Core.Models.Geometry
 
 ### 📍 LatLng
 

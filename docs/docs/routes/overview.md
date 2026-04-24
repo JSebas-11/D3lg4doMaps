@@ -3,6 +3,12 @@ sidebar_position: 1
 title: Routes Overview
 ---
 
+:::info Namespace update (v2.0.0)
+Namespaces were changed, update your `using` statements accordingly.
+
+👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
+:::
+
 # 🧭 Routes Overview
 
 The **Routes** module provides a powerful and developer-friendly way to compute routes and travel distances between locations.

@@ -3,6 +3,12 @@ title: Core Overview
 sidebar_position: 1
 ---
 
+:::info Namespace update (v2.0.0)
+Namespaces were changed, update your `using` statements accordingly.
+
+👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
+:::
+
 # 🧩 Core Overview
 
 The **Core** package provides the foundational infrastructure for the entire SDK.
