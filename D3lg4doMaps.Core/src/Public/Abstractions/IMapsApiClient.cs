@@ -1,7 +1,7 @@
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Core.Public.Models.Http;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Core.Models.Http;
 
-namespace D3lg4doMaps.Core.Public.Abstractions;
+namespace DelgadoMaps.Core.Abstractions;
 
 /// <summary>
 /// Represents a client capable of sending requests to a Maps API endpoint.

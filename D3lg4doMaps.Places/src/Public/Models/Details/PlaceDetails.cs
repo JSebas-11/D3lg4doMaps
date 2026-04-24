@@ -1,7 +1,7 @@
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Details.Components;
+using DelgadoMaps.Core.Models.Geometry;
+using DelgadoMaps.Places.Models.Details.Components;
 
-namespace D3lg4doMaps.Places.Public.Models.Details;
+namespace DelgadoMaps.Places.Models.Details;
 
 /// <summary>
 /// Represents detailed information about a place.

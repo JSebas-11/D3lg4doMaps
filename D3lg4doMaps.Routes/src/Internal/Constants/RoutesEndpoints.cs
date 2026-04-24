@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Internal.Constants;
+namespace DelgadoMaps.Routes.Internal.Constants;
 
 internal static class RoutesEndpoints {
     public const string BaseUrl = "https://routes.googleapis.com/";

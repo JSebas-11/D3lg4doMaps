@@ -1,7 +1,7 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Models.Http;
+using DelgadoMaps.Core.Models.Http;
 
-namespace D3lg4doMaps.Core.Public.Abstractions;
+namespace DelgadoMaps.Core.Abstractions;
 
 /// <summary>
 /// Provides JSON serialization and deserialization functionality used by the Maps client.

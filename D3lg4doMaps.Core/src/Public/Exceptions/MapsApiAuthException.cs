@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Exceptions;
+namespace DelgadoMaps.Core.Exceptions;
 
 /// <summary>
 /// Represents an authentication error returned by the Google Maps API.

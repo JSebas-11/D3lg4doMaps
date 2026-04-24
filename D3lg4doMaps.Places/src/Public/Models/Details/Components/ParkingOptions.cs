@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Details.Components;
+namespace DelgadoMaps.Places.Models.Details.Components;
 
 /// <summary>
 /// Represents parking availability information for a place.

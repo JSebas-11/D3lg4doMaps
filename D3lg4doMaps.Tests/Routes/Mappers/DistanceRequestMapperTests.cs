@@ -1,12 +1,12 @@
-using D3lg4doMaps.Routes.Internal.Mapping.Mappers;
-using D3lg4doMaps.Routes.Public.Builders;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests;
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
-using D3lg4doMaps.Routes.Public.Models.Requests.Components;
+using DelgadoMaps.Routes.Internal.Mapping.Mappers;
+using DelgadoMaps.Routes.Builders;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests;
+using DelgadoMaps.Routes.Models.Requests.Common;
+using DelgadoMaps.Routes.Models.Requests.Components;
 using FluentAssertions;
 
-namespace D3lg4doMaps.Tests.Routes.Mappers;
+namespace DelgadoMaps.Tests.Routes.Mappers;
 
 [Trait("Module", "Routes")]
 [Trait("Feature", "Mapper")]

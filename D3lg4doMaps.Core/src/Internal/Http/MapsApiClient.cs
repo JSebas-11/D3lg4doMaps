@@ -1,11 +1,11 @@
-using D3lg4doMaps.Core.Internal.Handlers;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Core.Public.Models.Http;
+using DelgadoMaps.Core.Internal.Handlers;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Core.Models.Http;
 using Microsoft.Extensions.Logging;
 
-namespace D3lg4doMaps.Core.Internal.Http;
+namespace DelgadoMaps.Core.Internal.Http;
 
 internal class MapsApiClient : IMapsApiClient {
     // -------------------- INIT --------------------

@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Abstractions;
+using DelgadoMaps.Routes.Abstractions;
 
-namespace D3lg4doMaps.Routes.Internal.Services;
+namespace DelgadoMaps.Routes.Internal.Services;
 
 internal class RoutesService : IRoutesService {
     // -------------------- INIT --------------------

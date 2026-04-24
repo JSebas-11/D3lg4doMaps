@@ -1,7 +1,7 @@
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests;
 
-namespace D3lg4doMaps.Routes.Internal.Factories;
+namespace DelgadoMaps.Routes.Internal.Factories;
 
 internal static class FieldMaskFactory {
     // -------------------- PROPS --------------------

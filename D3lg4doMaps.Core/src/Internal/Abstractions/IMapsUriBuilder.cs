@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Internal.Abstractions;
+namespace DelgadoMaps.Core.Internal.Abstractions;
 
 internal interface IMapsUriBuilder {
     IMapsUriBuilder WithPath(string baseUrl, string endpoint);

@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Models.Common;
+using DelgadoMaps.Routes.Models.Common;
 
-namespace D3lg4doMaps.Routes.Public.Models.Directions.Components;
+namespace DelgadoMaps.Routes.Models.Directions.Components;
 
 /// <summary>
 /// Represents traffic and travel-related advisory information for a route leg.

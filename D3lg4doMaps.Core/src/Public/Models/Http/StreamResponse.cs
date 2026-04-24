@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Models.Http;
+namespace DelgadoMaps.Core.Models.Http;
 
 /// <summary>
 /// Represents a streamed HTTP response, encapsulating both the response <see cref="Stream"/>

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Enums;
+namespace DelgadoMaps.Core.Enums;
 
 /// <summary>
 /// Specifies where the API key should be included in an HTTP request.

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.DistanceMatrix.Components;
+namespace DelgadoMaps.Routes.Models.DistanceMatrix.Components;
 
 /// <summary>
 /// Represents the status of a route matrix element computation.

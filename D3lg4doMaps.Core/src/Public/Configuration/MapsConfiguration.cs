@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Configuration;
+namespace DelgadoMaps.Core.Configuration;
 
 /// <summary>
 /// Represents the configuration settings used by the Maps SDK.

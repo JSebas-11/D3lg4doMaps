@@ -1,14 +1,14 @@
 using System.Text.Json;
-using D3lg4doMaps.Routes.Internal.Extensions;
-using D3lg4doMaps.Core.Public.Extensions;
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Routes.Internal.Mapping.Converters;
-using D3lg4doMaps.Routes.Public.Models.Common;
-using D3lg4doMaps.Routes.Public.Models.Components;
-using D3lg4doMaps.Routes.Public.Models.Directions;
-using D3lg4doMaps.Routes.Public.Models.Directions.Components;
+using DelgadoMaps.Routes.Internal.Extensions;
+using DelgadoMaps.Core.Extensions;
+using DelgadoMaps.Core.Models.Geometry;
+using DelgadoMaps.Routes.Internal.Mapping.Converters;
+using DelgadoMaps.Routes.Models.Common;
+using DelgadoMaps.Routes.Models.Components;
+using DelgadoMaps.Routes.Models.Directions;
+using DelgadoMaps.Routes.Models.Directions.Components;
 
-namespace D3lg4doMaps.Routes.Internal.Mapping.Mappers;
+namespace DelgadoMaps.Routes.Internal.Mapping.Mappers;
 
 internal static class DirectionsMapper {
     // -------------------- MAIN MODELS --------------------

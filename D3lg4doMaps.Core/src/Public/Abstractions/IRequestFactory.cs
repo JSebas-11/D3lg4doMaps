@@ -1,6 +1,6 @@
-using D3lg4doMaps.Core.Public.Models;
+using DelgadoMaps.Core.Models;
 
-namespace D3lg4doMaps.Core.Public.Abstractions;
+namespace DelgadoMaps.Core.Abstractions;
 
 /// <summary>
 /// Creates HTTP requests based on a <see cref="MapsApiRequest"/> definition.

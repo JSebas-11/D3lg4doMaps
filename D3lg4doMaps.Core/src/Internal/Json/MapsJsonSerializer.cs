@@ -1,8 +1,8 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Models.Http;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Models.Http;
 
-namespace D3lg4doMaps.Core.Internal.Json;
+namespace DelgadoMaps.Core.Internal.Json;
 
 internal sealed class MapsJsonSerializer : IMapsJsonSerializer {
     public string Serialize(object value) 

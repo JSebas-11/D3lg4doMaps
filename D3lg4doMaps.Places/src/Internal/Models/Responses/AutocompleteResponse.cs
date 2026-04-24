@@ -1,6 +1,6 @@
-using D3lg4doMaps.Places.Internal.Models.DTOs;
+using DelgadoMaps.Places.Internal.Models.DTOs;
 
-namespace D3lg4doMaps.Places.Internal.Models.Responses;
+namespace DelgadoMaps.Places.Internal.Models.Responses;
 
 // MAIN MODEL
 internal sealed class AutocompleteResponse {

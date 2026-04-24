@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Common;
+namespace DelgadoMaps.Routes.Models.Common;
 
 /// <summary>
 /// Represents travel advisory information for a route.

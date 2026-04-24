@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Enums;
+namespace DelgadoMaps.Routes.Enums;
 
 /// <summary>
 /// Represents the routing mode used when fallback occurs.

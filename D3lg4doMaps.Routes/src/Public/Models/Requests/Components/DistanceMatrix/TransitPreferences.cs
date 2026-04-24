@@ -1,7 +1,7 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Routes.Enums;
 
-namespace D3lg4doMaps.Routes.Public.Models.Requests.Components;
+namespace DelgadoMaps.Routes.Models.Requests.Components;
 
 /// <summary>
 /// Represents preferences used when routing with transit travel mode.

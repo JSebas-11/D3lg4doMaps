@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Models.Geometry;
+namespace DelgadoMaps.Core.Models.Geometry;
 
 /// <summary>
 /// Represents a geographic coordinate defined by a latitude and longitude pair.

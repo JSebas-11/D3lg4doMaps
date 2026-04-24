@@ -1,6 +1,6 @@
-using D3lg4doMaps.Places.Public.Abstractions;
+using DelgadoMaps.Places.Abstractions;
 
-namespace D3lg4doMaps.Places.Internal.Services;
+namespace DelgadoMaps.Places.Internal.Services;
 
 internal class PlacesService : IPlacesService {
     // -------------------- INIT --------------------

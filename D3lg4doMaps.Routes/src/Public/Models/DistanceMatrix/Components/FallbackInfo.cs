@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Routes.Enums;
 
-namespace D3lg4doMaps.Routes.Public.Models.DistanceMatrix.Components;
+namespace DelgadoMaps.Routes.Models.DistanceMatrix.Components;
 
 /// <summary>
 /// Represents fallback routing information for a matrix element.

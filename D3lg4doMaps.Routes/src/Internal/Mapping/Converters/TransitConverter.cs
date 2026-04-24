@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Routes.Enums;
 
-namespace D3lg4doMaps.Routes.Internal.Mapping.Converters;
+namespace DelgadoMaps.Routes.Internal.Mapping.Converters;
 
 internal static class TransitRoutingPreferenceConverter {
     public static TransitRoutingPreference FromApi(string? preference)

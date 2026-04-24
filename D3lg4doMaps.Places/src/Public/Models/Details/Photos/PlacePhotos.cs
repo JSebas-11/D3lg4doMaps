@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Details.Photos;
+namespace DelgadoMaps.Places.Models.Details.Photos;
 
 /// <summary>
 /// Represents a photo associated with a place.

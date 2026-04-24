@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Enums;
+namespace DelgadoMaps.Routes.Enums;
 
 /// <summary>
 /// Specifies how traffic conditions are considered when calculating routes.

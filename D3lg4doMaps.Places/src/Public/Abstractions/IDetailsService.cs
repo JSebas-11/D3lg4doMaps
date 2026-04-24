@@ -1,10 +1,10 @@
 using System.Text.Json;
-using D3lg4doMaps.Places.Public.Models.Details;
-using D3lg4doMaps.Places.Public.Models.Details.Photos;
-using D3lg4doMaps.Places.Public.Models.Details.Reviews;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Places.Models.Details;
+using DelgadoMaps.Places.Models.Details.Photos;
+using DelgadoMaps.Places.Models.Details.Reviews;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Public.Abstractions;
+namespace DelgadoMaps.Places.Abstractions;
 
 /// <summary>
 /// Provides access to detailed information about places, including metadata,

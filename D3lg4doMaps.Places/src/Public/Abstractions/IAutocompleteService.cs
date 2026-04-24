@@ -1,7 +1,7 @@
-using D3lg4doMaps.Places.Public.Models;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Places.Models;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Public.Abstractions;
+namespace DelgadoMaps.Places.Abstractions;
 
 /// <summary>
 /// Provides autocomplete functionality for retrieving place suggestions

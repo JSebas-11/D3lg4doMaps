@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Requests.Common;
+namespace DelgadoMaps.Routes.Models.Requests.Common;
 
 /// <summary>
 /// Represents routing modifiers used to influence route calculation.

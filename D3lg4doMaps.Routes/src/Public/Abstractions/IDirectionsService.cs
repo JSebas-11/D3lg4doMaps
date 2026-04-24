@@ -1,9 +1,9 @@
 using System.Text.Json;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Directions;
-using D3lg4doMaps.Routes.Public.Models.Requests;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Directions;
+using DelgadoMaps.Routes.Models.Requests;
 
-namespace D3lg4doMaps.Routes.Public.Abstractions;
+namespace DelgadoMaps.Routes.Abstractions;
 
 /// <summary>
 /// Provides functionality for calculating routes between locations.

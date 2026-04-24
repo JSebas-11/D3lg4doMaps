@@ -1,16 +1,16 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Enums;
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Routes.Internal.Constants;
-using D3lg4doMaps.Routes.Internal.Factories;
-using D3lg4doMaps.Routes.Internal.Mapping.Mappers;
-using D3lg4doMaps.Routes.Public.Abstractions;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.DistanceMatrix;
-using D3lg4doMaps.Routes.Public.Models.Requests;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Enums;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Routes.Internal.Constants;
+using DelgadoMaps.Routes.Internal.Factories;
+using DelgadoMaps.Routes.Internal.Mapping.Mappers;
+using DelgadoMaps.Routes.Abstractions;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.DistanceMatrix;
+using DelgadoMaps.Routes.Models.Requests;
 
-namespace D3lg4doMaps.Routes.Internal.Services;
+namespace DelgadoMaps.Routes.Internal.Services;
 
 internal class DistanceMatrixService : IDistanceMatrixService {
     // -------------------- INIT --------------------

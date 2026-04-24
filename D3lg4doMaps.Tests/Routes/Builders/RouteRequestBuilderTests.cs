@@ -1,10 +1,10 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Routes.Public.Builders;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Routes.Builders;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests.Common;
 using FluentAssertions;
 
-namespace D3lg4doMaps.Tests.Routes.Builders;
+namespace DelgadoMaps.Tests.Routes.Builders;
 
 [Trait("Module", "Routes")]
 [Trait("Feature", "Builder")]

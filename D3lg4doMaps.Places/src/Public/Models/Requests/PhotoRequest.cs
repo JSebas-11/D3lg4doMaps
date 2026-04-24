@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Requests;
+namespace DelgadoMaps.Places.Models.Requests;
 
 /// <summary>
 /// Represents a request for retrieving photos associated with a place.

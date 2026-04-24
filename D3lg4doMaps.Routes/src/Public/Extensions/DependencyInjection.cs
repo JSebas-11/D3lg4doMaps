@@ -1,10 +1,10 @@
-using D3lg4doMaps.Core.Public.Configuration;
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Routes.Internal.Services;
-using D3lg4doMaps.Routes.Public.Abstractions;
+using DelgadoMaps.Core.Configuration;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Routes.Internal.Services;
+using DelgadoMaps.Routes.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace D3lg4doMaps.Routes.Public.Extensions;
+namespace DelgadoMaps.Routes.Extensions;
 
 /// <summary>
 /// Provides extension methods for registering Routes services

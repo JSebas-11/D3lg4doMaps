@@ -1,8 +1,8 @@
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Components;
-using D3lg4doMaps.Routes.Public.Models.Directions.Components;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Components;
+using DelgadoMaps.Routes.Models.Directions.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.Directions;
+namespace DelgadoMaps.Routes.Models.Directions;
 
 /// <summary>
 /// Represents a single navigation step within a route leg.

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Enums;
+namespace DelgadoMaps.Routes.Enums;
 
 /// <summary>
 /// Specifies the level of detail returned for routes.

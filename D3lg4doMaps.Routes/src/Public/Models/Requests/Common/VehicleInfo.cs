@@ -1,7 +1,7 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Routes.Enums;
 
-namespace D3lg4doMaps.Routes.Public.Models.Requests.Common;
+namespace DelgadoMaps.Routes.Models.Requests.Common;
 
 /// <summary>
 /// Represents vehicle-specific information used for route calculation.

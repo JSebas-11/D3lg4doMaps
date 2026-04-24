@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
+using DelgadoMaps.Routes.Models.Requests.Common;
 
-namespace D3lg4doMaps.Routes.Public.Models.Requests.Components;
+namespace DelgadoMaps.Routes.Models.Requests.Components;
 
 /// <summary>
 /// Represents a destination element in a distance matrix request.

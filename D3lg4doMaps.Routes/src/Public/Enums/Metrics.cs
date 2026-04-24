@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Enums;
+namespace DelgadoMaps.Routes.Enums;
 
 /// <summary>
 /// Specifies the unit system used for distances and measurements.

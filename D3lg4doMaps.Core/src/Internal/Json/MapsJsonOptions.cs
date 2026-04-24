@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace D3lg4doMaps.Core.Internal.Json;
+namespace DelgadoMaps.Core.Internal.Json;
 
 internal static class MapsJsonOptions {
     public static readonly JsonSerializerOptions Default = new() {

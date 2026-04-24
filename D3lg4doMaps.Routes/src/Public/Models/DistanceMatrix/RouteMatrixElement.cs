@@ -1,8 +1,8 @@
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Common;
-using D3lg4doMaps.Routes.Public.Models.DistanceMatrix.Components;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Common;
+using DelgadoMaps.Routes.Models.DistanceMatrix.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.DistanceMatrix;
+namespace DelgadoMaps.Routes.Models.DistanceMatrix;
 
 /// <summary>
 /// Represents a single element in a distance matrix response.

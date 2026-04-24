@@ -1,7 +1,7 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Public.Builders;
+namespace DelgadoMaps.Places.Builders;
 
 /// <summary>
 /// Provides a fluent API for constructing <see cref="PhotoRequest"/> instances.

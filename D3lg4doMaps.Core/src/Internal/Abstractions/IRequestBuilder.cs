@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Internal.Abstractions;
+namespace DelgadoMaps.Core.Internal.Abstractions;
 
 internal interface IRequestBuilder {
     IRequestBuilder SetMethod(HttpMethod method);

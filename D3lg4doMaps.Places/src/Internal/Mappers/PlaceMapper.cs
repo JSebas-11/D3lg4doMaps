@@ -1,7 +1,7 @@
-using D3lg4doMaps.Places.Internal.Models.DTOs;
-using D3lg4doMaps.Places.Public.Models;
+using DelgadoMaps.Places.Internal.Models.DTOs;
+using DelgadoMaps.Places.Models;
 
-namespace D3lg4doMaps.Places.Internal.Mappers;
+namespace DelgadoMaps.Places.Internal.Mappers;
 
 internal static class PlaceMapper {
     public static PlaceSearchResult ToSearchResult(PlaceSearchDto dto)

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models;
+namespace DelgadoMaps.Places.Models;
 
 /// <summary>
 /// Represents a predicted place suggestion returned from an autocomplete query.

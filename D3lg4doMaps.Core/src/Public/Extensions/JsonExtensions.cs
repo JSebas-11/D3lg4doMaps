@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace D3lg4doMaps.Core.Public.Extensions;
+namespace DelgadoMaps.Core.Extensions;
 
 /// <summary>
 /// Provides helper extension methods for safely reading values from a <see cref="JsonElement"/>.

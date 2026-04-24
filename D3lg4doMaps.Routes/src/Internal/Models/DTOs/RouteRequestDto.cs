@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
+using DelgadoMaps.Routes.Models.Requests.Common;
 
-namespace D3lg4doMaps.Routes.Internal.Models.DTOs;
+namespace DelgadoMaps.Routes.Internal.Models.DTOs;
 
 internal sealed class RouteRequestDto {
     public Waypoint Origin { get; internal set; } = null!;

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Directions.Components;
+namespace DelgadoMaps.Routes.Models.Directions.Components;
 
 /// <summary>
 /// Represents localized (human-readable) values for a route step.

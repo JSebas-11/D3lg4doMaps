@@ -1,10 +1,10 @@
-using D3lg4doMaps.Routes.Internal.Mapping.Converters;
-using D3lg4doMaps.Routes.Internal.Models.DTOs;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests;
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
+using DelgadoMaps.Routes.Internal.Mapping.Converters;
+using DelgadoMaps.Routes.Internal.Models.DTOs;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests;
+using DelgadoMaps.Routes.Models.Requests.Common;
 
-namespace D3lg4doMaps.Routes.Internal.Mapping.Mappers;
+namespace DelgadoMaps.Routes.Internal.Mapping.Mappers;
 
 internal static class RouteRequestMapper {
     public static RouteRequestDto ToRouteRequestDto(RouteRequest request)

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Components;
+namespace DelgadoMaps.Routes.Models.Components;
 
 /// <summary>
 /// Represents an encoded polyline describing a path.

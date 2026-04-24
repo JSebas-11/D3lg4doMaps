@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Internal.Constants;
+namespace DelgadoMaps.Places.Internal.Constants;
 
 internal static class PlacesEndpoints {
     public const string BaseUrl = "https://places.googleapis.com/v1/";

@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Routes.Enums;
 
-namespace D3lg4doMaps.Routes.Public.Models.Common;
+namespace DelgadoMaps.Routes.Models.Common;
 
 /// <summary>
 /// Represents a segment of the route with a specific traffic speed condition.

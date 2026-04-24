@@ -1,8 +1,8 @@
-using D3lg4doMaps.Routes.Public.Builders;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests.Components;
+using DelgadoMaps.Routes.Builders;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.Requests;
+namespace DelgadoMaps.Routes.Models.Requests;
 
 /// <summary>
 /// Represents a request for computing distances and durations between multiple origins and destinations.

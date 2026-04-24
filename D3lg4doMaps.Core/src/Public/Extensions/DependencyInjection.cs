@@ -1,14 +1,14 @@
-using D3lg4doMaps.Core.Internal.Abstractions;
-using D3lg4doMaps.Core.Internal.Factories;
-using D3lg4doMaps.Core.Internal.Http.Builders;
-using D3lg4doMaps.Core.Internal.Http;
-using D3lg4doMaps.Core.Internal.Json;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Configuration;
+using DelgadoMaps.Core.Internal.Abstractions;
+using DelgadoMaps.Core.Internal.Factories;
+using DelgadoMaps.Core.Internal.Builders;
+using DelgadoMaps.Core.Internal.Http;
+using DelgadoMaps.Core.Internal.Json;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using D3lg4doMaps.Core.Public.Exceptions;
+using DelgadoMaps.Core.Exceptions;
 
-namespace D3lg4doMaps.Core.Public.Extensions;
+namespace DelgadoMaps.Core.Extensions;
 
 /// <summary>
 /// Provides extension methods for registering the D3lg4doMaps SDK services

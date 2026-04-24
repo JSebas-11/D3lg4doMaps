@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Exceptions;
+namespace DelgadoMaps.Core.Exceptions;
 
 /// <summary>
 /// Represents an error caused by an invalid request sent to the Google Maps API.

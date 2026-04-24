@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Directions.Components;
+namespace DelgadoMaps.Routes.Models.Directions.Components;
 
 /// <summary>
 /// Represents a summarized overview of route steps.

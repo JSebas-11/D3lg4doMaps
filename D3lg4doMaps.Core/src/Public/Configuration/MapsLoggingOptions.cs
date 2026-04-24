@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace D3lg4doMaps.Core.Public.Configuration;
+namespace DelgadoMaps.Core.Configuration;
 
 /// <summary>
 /// Defines logging options for the Maps SDK.

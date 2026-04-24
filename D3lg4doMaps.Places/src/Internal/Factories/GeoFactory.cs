@@ -1,8 +1,8 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Geometry;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Core.Models.Geometry;
+using DelgadoMaps.Places.Models.Geometry;
 
-namespace D3lg4doMaps.Places.Internal.Factories;
+namespace DelgadoMaps.Places.Internal.Factories;
 
 internal static class GeoFactory {
     public static GeoCircle CreateCircle(

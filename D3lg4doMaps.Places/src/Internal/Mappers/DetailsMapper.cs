@@ -1,12 +1,12 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Extensions;
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Details;
-using D3lg4doMaps.Places.Public.Models.Details.Components;
-using D3lg4doMaps.Places.Public.Models.Details.Photos;
-using D3lg4doMaps.Places.Public.Models.Details.Reviews;
+using DelgadoMaps.Core.Extensions;
+using DelgadoMaps.Core.Models.Geometry;
+using DelgadoMaps.Places.Models.Details;
+using DelgadoMaps.Places.Models.Details.Components;
+using DelgadoMaps.Places.Models.Details.Photos;
+using DelgadoMaps.Places.Models.Details.Reviews;
 
-namespace D3lg4doMaps.Places.Internal.Mappers;
+namespace DelgadoMaps.Places.Internal.Mappers;
 
 internal static class DetailsMapper {
     // -------------------- MAIN MODELS --------------------

@@ -1,8 +1,8 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Internal.Json;
+using DelgadoMaps.Core.Internal.Json;
 using FluentAssertions;
 
-namespace D3lg4doMaps.Tests.Core.Json;
+namespace DelgadoMaps.Tests.Core.Json;
 
 [Trait("Module", "Core")]
 [Trait("Feature", "Serializer")]

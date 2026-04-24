@@ -1,7 +1,7 @@
 using System.Net;
-using D3lg4doMaps.Core.Public.Exceptions;
+using DelgadoMaps.Core.Exceptions;
 
-namespace D3lg4doMaps.Core.Internal.Handlers;
+namespace DelgadoMaps.Core.Internal.Handlers;
 
 internal static class ExceptionHandler {
     public static void Handle(HttpStatusCode statusCode) {

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Geometry;
+namespace DelgadoMaps.Places.Models.Geometry;
 
 /// <summary>
 /// Represents a geographic bias applied to a Places request.

@@ -1,9 +1,9 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Requests;
-using D3lg4doMaps.Routes.Public.Models.Requests.Common;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Requests;
+using DelgadoMaps.Routes.Models.Requests.Common;
 
-namespace D3lg4doMaps.Routes.Public.Builders;
+namespace DelgadoMaps.Routes.Builders;
 
 /// <summary>
 /// Provides a fluent API for constructing <see cref="RouteRequest"/> instances.

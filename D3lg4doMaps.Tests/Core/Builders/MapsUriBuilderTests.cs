@@ -1,6 +1,7 @@
+using DelgadoMaps.Core.Internal.Builders;
 using FluentAssertions;
 
-namespace D3lg4doMaps.Tests.Core.Builders;
+namespace DelgadoMaps.Tests.Core.Builders;
 
 [Trait("Module", "Core")]
 [Trait("Feature", "Builder")]

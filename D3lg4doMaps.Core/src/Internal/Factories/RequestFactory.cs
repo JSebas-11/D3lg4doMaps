@@ -1,10 +1,10 @@
-using D3lg4doMaps.Core.Internal.Abstractions;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Configuration;
-using D3lg4doMaps.Core.Public.Enums;
-using D3lg4doMaps.Core.Public.Models;
+using DelgadoMaps.Core.Internal.Abstractions;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Configuration;
+using DelgadoMaps.Core.Enums;
+using DelgadoMaps.Core.Models;
 
-namespace D3lg4doMaps.Core.Internal.Factories;
+namespace DelgadoMaps.Core.Internal.Factories;
 
 internal class RequestFactory : IRequestFactory {
     // -------------------- INIT --------------------

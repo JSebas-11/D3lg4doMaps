@@ -1,7 +1,7 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Extensions;
+using DelgadoMaps.Core.Extensions;
 
-namespace D3lg4doMaps.Routes.Internal.Extensions;
+namespace DelgadoMaps.Routes.Internal.Extensions;
 
 internal static class JsonExtensions {
     public static string? GetLocalizedValueText(this JsonElement json, string prop)

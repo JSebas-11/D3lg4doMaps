@@ -1,14 +1,14 @@
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Places.Internal.Constants;
-using D3lg4doMaps.Places.Internal.Mappers;
-using D3lg4doMaps.Places.Internal.Models.Responses;
-using D3lg4doMaps.Places.Public.Abstractions;
-using D3lg4doMaps.Places.Public.Models;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Places.Internal.Constants;
+using DelgadoMaps.Places.Internal.Mappers;
+using DelgadoMaps.Places.Internal.Models.Responses;
+using DelgadoMaps.Places.Abstractions;
+using DelgadoMaps.Places.Models;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Internal.Services;
+namespace DelgadoMaps.Places.Internal.Services;
 
 internal class SearchService : ISearchService {
     // -------------------- INIT --------------------

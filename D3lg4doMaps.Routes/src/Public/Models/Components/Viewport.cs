@@ -1,6 +1,6 @@
-using D3lg4doMaps.Core.Public.Models.Geometry;
+using DelgadoMaps.Core.Models.Geometry;
 
-namespace D3lg4doMaps.Routes.Public.Models.Components;
+namespace DelgadoMaps.Routes.Models.Components;
 
 /// <summary>
 /// Represents a rectangular geographic bounding box.

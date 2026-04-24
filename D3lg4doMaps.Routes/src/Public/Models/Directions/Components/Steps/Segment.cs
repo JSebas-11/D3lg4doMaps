@@ -1,7 +1,7 @@
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.Components;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.Directions.Components;
+namespace DelgadoMaps.Routes.Models.Directions.Components;
 
 /// <summary>
 /// Represents a summarized navigation segment within a route.

@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Abstractions;
+namespace DelgadoMaps.Routes.Abstractions;
 
 /// <summary>
 /// Provides a unified entry point for accessing all routing-related services.

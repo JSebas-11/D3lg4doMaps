@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
-using D3lg4doMaps.Core.Internal.Abstractions;
+using DelgadoMaps.Core.Internal.Abstractions;
 
-namespace D3lg4doMaps.Core.Internal.Http.Builders;
+namespace DelgadoMaps.Core.Internal.Builders;
 
 internal class RequestBuilder : IRequestBuilder {
     // -------------------- INIT --------------------

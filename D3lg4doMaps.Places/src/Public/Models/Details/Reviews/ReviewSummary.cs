@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models.Details.Reviews;
+namespace DelgadoMaps.Places.Models.Details.Reviews;
 
 /// <summary>
 /// Represents a summarized version of place reviews done by Gemini AI.

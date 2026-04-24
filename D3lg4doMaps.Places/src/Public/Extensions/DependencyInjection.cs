@@ -1,10 +1,10 @@
-using D3lg4doMaps.Core.Public.Configuration;
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Places.Internal.Services;
-using D3lg4doMaps.Places.Public.Abstractions;
+using DelgadoMaps.Core.Configuration;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Places.Internal.Services;
+using DelgadoMaps.Places.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace D3lg4doMaps.Places.Public.Extensions;
+namespace DelgadoMaps.Places.Extensions;
 
 /// <summary>
 /// Provides extension methods for registering Places services

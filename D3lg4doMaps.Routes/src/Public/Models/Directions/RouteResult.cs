@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Public.Models.Directions;
+namespace DelgadoMaps.Routes.Models.Directions;
 
 /// <summary>
 /// Represents the result of a directions request.

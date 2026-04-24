@@ -1,7 +1,7 @@
-using D3lg4doMaps.Routes.Public.Models.Common;
-using D3lg4doMaps.Routes.Public.Models.Components;
+using DelgadoMaps.Routes.Models.Common;
+using DelgadoMaps.Routes.Models.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.Directions;
+namespace DelgadoMaps.Routes.Models.Directions;
 
 /// <summary>
 /// Represents a fully computed route between an origin and a destination.

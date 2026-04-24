@@ -1,8 +1,8 @@
-using D3lg4doMaps.Routes.Public.Enums;
-using D3lg4doMaps.Routes.Public.Models.DistanceMatrix;
-using D3lg4doMaps.Routes.Public.Models.Requests;
+using DelgadoMaps.Routes.Enums;
+using DelgadoMaps.Routes.Models.DistanceMatrix;
+using DelgadoMaps.Routes.Models.Requests;
 
-namespace D3lg4doMaps.Routes.Public.Abstractions;
+namespace DelgadoMaps.Routes.Abstractions;
 
 /// <summary>
 /// Provides functionality for computing distance and travel time

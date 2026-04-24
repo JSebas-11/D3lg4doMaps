@@ -1,6 +1,6 @@
-using D3lg4doMaps.Core.Public.Models.Geometry;
+using DelgadoMaps.Core.Models.Geometry;
 
-namespace D3lg4doMaps.Places.Public.Models.Geometry;
+namespace DelgadoMaps.Places.Models.Geometry;
 
 /// <summary>
 /// Represents a circular geographic area defined by a center point and radius.

@@ -1,9 +1,9 @@
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Places.Internal.Factories;
-using D3lg4doMaps.Places.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Places.Internal.Factories;
+using DelgadoMaps.Places.Models.Geometry;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Public.Builders;
+namespace DelgadoMaps.Places.Builders;
 
 /// <summary>
 /// Provides a fluent API for constructing <see cref="NearbyRequest"/> instances.

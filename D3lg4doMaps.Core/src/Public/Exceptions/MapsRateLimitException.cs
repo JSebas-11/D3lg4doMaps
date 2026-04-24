@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Core.Public.Exceptions;
+namespace DelgadoMaps.Core.Exceptions;
 
 /// <summary>
 /// Represents an error indicating that the Google Maps API rate limit has been exceeded.

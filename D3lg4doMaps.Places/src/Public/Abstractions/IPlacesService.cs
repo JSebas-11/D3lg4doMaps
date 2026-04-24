@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Abstractions;
+namespace DelgadoMaps.Places.Abstractions;
 
 /// <summary>
 /// Provides a unified entry point for accessing all Places-related services.

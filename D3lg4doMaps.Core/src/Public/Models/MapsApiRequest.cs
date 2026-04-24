@@ -1,6 +1,6 @@
-using D3lg4doMaps.Core.Public.Enums;
+using DelgadoMaps.Core.Enums;
 
-namespace D3lg4doMaps.Core.Public.Models;
+namespace DelgadoMaps.Core.Models;
 
 /// <summary>
 /// Represents a request definition used to call a Maps API endpoint.

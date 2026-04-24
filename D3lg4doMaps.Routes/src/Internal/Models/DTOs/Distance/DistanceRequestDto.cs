@@ -1,6 +1,6 @@
-using D3lg4doMaps.Routes.Public.Models.Requests.Components;
+using DelgadoMaps.Routes.Models.Requests.Components;
 
-namespace D3lg4doMaps.Routes.Internal.Models.DTOs;
+namespace DelgadoMaps.Routes.Internal.Models.DTOs;
 
 internal sealed class DistanceRequestDto {
     public IReadOnlyList<RouteMatrixOriginDto> Origins { get; internal set; } = [];

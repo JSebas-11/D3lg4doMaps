@@ -1,9 +1,9 @@
 using System.Text.Json;
-using D3lg4doMaps.Routes.Internal.Mapping.Mappers;
-using D3lg4doMaps.Routes.Public.Enums;
+using DelgadoMaps.Routes.Internal.Mapping.Mappers;
+using DelgadoMaps.Routes.Enums;
 using FluentAssertions;
 
-namespace D3lg4doMaps.Tests.Routes.Mappers;
+namespace DelgadoMaps.Tests.Routes.Mappers;
 
 [Trait("Module", "Routes")]
 [Trait("Feature", "Mapper")]

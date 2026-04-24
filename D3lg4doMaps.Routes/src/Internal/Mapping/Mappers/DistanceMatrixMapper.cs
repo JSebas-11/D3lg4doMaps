@@ -1,12 +1,12 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Extensions;
-using D3lg4doMaps.Routes.Internal.Extensions;
-using D3lg4doMaps.Routes.Internal.Mapping.Converters;
-using D3lg4doMaps.Routes.Public.Models.Common;
-using D3lg4doMaps.Routes.Public.Models.DistanceMatrix;
-using D3lg4doMaps.Routes.Public.Models.DistanceMatrix.Components;
+using DelgadoMaps.Core.Extensions;
+using DelgadoMaps.Routes.Internal.Extensions;
+using DelgadoMaps.Routes.Internal.Mapping.Converters;
+using DelgadoMaps.Routes.Models.Common;
+using DelgadoMaps.Routes.Models.DistanceMatrix;
+using DelgadoMaps.Routes.Models.DistanceMatrix.Components;
 
-namespace D3lg4doMaps.Routes.Internal.Mapping.Mappers;
+namespace DelgadoMaps.Routes.Internal.Mapping.Mappers;
 
 internal static class DistanceMatrixMapper {
     // -------------------- MAIN MODELS --------------------

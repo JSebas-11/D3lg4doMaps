@@ -1,6 +1,6 @@
-using D3lg4doMaps.Places.Public.Models.Geometry;
+using DelgadoMaps.Places.Models.Geometry;
 
-namespace D3lg4doMaps.Places.Public.Models.Requests;
+namespace DelgadoMaps.Places.Models.Requests;
 
 /// <summary>
 /// Represents a request for retrieving place autocomplete suggestions.

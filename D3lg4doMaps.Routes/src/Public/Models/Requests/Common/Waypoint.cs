@@ -1,7 +1,7 @@
-using D3lg4doMaps.Routes.Public.Builders;
-using D3lg4doMaps.Routes.Public.Models.Components;
+using DelgadoMaps.Routes.Builders;
+using DelgadoMaps.Routes.Models.Components;
 
-namespace D3lg4doMaps.Routes.Public.Models.Requests.Common;
+namespace DelgadoMaps.Routes.Models.Requests.Common;
 
 /// <summary>
 /// Represents a location used in routing operations.

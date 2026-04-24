@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Routes.Internal.Models.DTOs;
+namespace DelgadoMaps.Routes.Internal.Models.DTOs;
 
 internal sealed class RouteModifiersDto {
     public bool AvoidTolls { get; internal set; } = false;

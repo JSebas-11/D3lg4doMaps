@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Public.Models;
+namespace DelgadoMaps.Places.Models;
 
 /// <summary>
 /// Represents a place returned from a search query.

@@ -1,18 +1,18 @@
 using System.Text.Json;
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Enums;
-using D3lg4doMaps.Core.Public.Exceptions;
-using D3lg4doMaps.Core.Public.Extensions;
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Places.Internal.Constants;
-using D3lg4doMaps.Places.Internal.Mappers;
-using D3lg4doMaps.Places.Public.Abstractions;
-using D3lg4doMaps.Places.Public.Models.Details;
-using D3lg4doMaps.Places.Public.Models.Details.Photos;
-using D3lg4doMaps.Places.Public.Models.Details.Reviews;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Enums;
+using DelgadoMaps.Core.Exceptions;
+using DelgadoMaps.Core.Extensions;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Places.Internal.Constants;
+using DelgadoMaps.Places.Internal.Mappers;
+using DelgadoMaps.Places.Abstractions;
+using DelgadoMaps.Places.Models.Details;
+using DelgadoMaps.Places.Models.Details.Photos;
+using DelgadoMaps.Places.Models.Details.Reviews;
+using DelgadoMaps.Places.Models.Requests;
 
-namespace D3lg4doMaps.Places.Internal.Services;
+namespace DelgadoMaps.Places.Internal.Services;
 
 internal class DetailsService : IDetailsService {
     // -------------------- INIT --------------------

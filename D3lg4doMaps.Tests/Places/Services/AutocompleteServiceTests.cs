@@ -1,16 +1,16 @@
-using D3lg4doMaps.Core.Public.Abstractions;
-using D3lg4doMaps.Core.Public.Models;
-using D3lg4doMaps.Core.Public.Models.Geometry;
-using D3lg4doMaps.Places.Internal.Constants;
-using D3lg4doMaps.Places.Internal.Models.DTOs;
-using D3lg4doMaps.Places.Internal.Models.Responses;
-using D3lg4doMaps.Places.Internal.Services;
-using D3lg4doMaps.Places.Public.Models.Geometry;
-using D3lg4doMaps.Places.Public.Models.Requests;
+using DelgadoMaps.Core.Abstractions;
+using DelgadoMaps.Core.Models;
+using DelgadoMaps.Core.Models.Geometry;
+using DelgadoMaps.Places.Internal.Constants;
+using DelgadoMaps.Places.Internal.Models.DTOs;
+using DelgadoMaps.Places.Internal.Models.Responses;
+using DelgadoMaps.Places.Internal.Services;
+using DelgadoMaps.Places.Models.Geometry;
+using DelgadoMaps.Places.Models.Requests;
 using FluentAssertions;
 using NSubstitute;
 
-namespace D3lg4doMaps.Tests.Places.Services;
+namespace DelgadoMaps.Tests.Places.Services;
 
 [Trait("Module", "Places")]
 [Trait("Feature", "Service")]

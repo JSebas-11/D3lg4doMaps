@@ -1,5 +1,7 @@
-using D3lg4doMaps.Core.Internal.Abstractions;
-using D3lg4doMaps.Core.Public.Exceptions;
+using DelgadoMaps.Core.Internal.Abstractions;
+using DelgadoMaps.Core.Exceptions;
+
+namespace DelgadoMaps.Core.Internal.Builders;
 
 internal class MapsUriBuilder : IMapsUriBuilder {
     // -------------------- INIT --------------------

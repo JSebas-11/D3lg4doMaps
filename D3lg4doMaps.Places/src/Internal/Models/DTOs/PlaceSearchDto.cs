@@ -1,4 +1,4 @@
-namespace D3lg4doMaps.Places.Internal.Models.DTOs;
+namespace DelgadoMaps.Places.Internal.Models.DTOs;
 
 // MAIN MODEL
 internal sealed class PlaceSearchDto {
