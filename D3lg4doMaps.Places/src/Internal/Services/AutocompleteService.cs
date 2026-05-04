@@ -24,7 +24,7 @@ internal class AutocompleteService : IAutocompleteService {
     // -------------------- METHS --------------------
     public async Task<IReadOnlyList<PlaceSuggestion>> SuggestPlacesAsync(AutocompleteRequest autocompleteRequest) {
         var request = CreateRequest(autocompleteRequest);
-        var response = await _apiClient.SendAsync<AutocompleteResponse>(request);
+        var response = await _apiClient.SendAsync<AutocompleteResponse>(request).ConfigureAwait(false);
 
         return [.. response.Suggestions
             .Where(s => s.PlacePrediction is not null)

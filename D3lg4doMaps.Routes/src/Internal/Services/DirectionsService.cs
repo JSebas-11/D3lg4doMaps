@@ -25,7 +25,7 @@ internal class DirectionsService : IDirectionsService {
         RouteRequest routeRequest, RouteDetailLevel detailLevel = RouteDetailLevel.Standard 
         ) { 
             var fields = FieldMaskFactory.GetFieldMask(routeRequest, detailLevel); 
-            using var json = await GetRoutesRawAsync(routeRequest, fields); 
+            using var json = await GetRoutesRawAsync(routeRequest, fields).ConfigureAwait(false); 
             return DirectionsMapper.ToRouteResult(json); 
         } 
     
@@ -37,7 +37,7 @@ internal class DirectionsService : IDirectionsService {
             { "X-Goog-FieldMask", string.Join(',', fields) } 
         }; 
         var request = CreateRequest(headers, routeRequest); 
-        return await _apiClient.SendAsync<JsonDocument>(request); 
+        return await _apiClient.SendAsync<JsonDocument>(request).ConfigureAwait(false); 
     }
 
     // -------------------- INNER METHS --------------------

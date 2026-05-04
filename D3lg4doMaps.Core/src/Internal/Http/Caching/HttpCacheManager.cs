@@ -23,9 +23,10 @@ internal sealed class HttpCacheManager : IHttpCacheManager {
         var key = _keyStrategy.GenerateCacheKey(request);
         
         try {
-            var mappedResponse = await ResponseMapper.ToCacheResponseAsync(response);
+            var mappedResponse = await ResponseMapper.ToCacheResponseAsync(response)
+                .ConfigureAwait(false);
 
-            await _cache.SetAsync(key, mappedResponse);
+            await _cache.SetAsync(key, mappedResponse).ConfigureAwait(false);
         }
         catch (MapsCacheException) { throw; }
         catch (Exception ex) {
@@ -37,7 +38,7 @@ internal sealed class HttpCacheManager : IHttpCacheManager {
         var key = _keyStrategy.GenerateCacheKey(request);
 
         try {
-            var cacheResponse = await _cache.GetAsync(key);
+            var cacheResponse = await _cache.GetAsync(key).ConfigureAwait(false);
 
             return cacheResponse is null 
                 ? null : ResponseMapper.ToHttpResponse(cacheResponse);

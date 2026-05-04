@@ -34,7 +34,7 @@ internal class DetailsService : IDetailsService {
 
     // -------------------- METHS --------------------
     public async Task<PlaceDetails> GetDetailsAsync(string placeId) {
-        using var jsonDocument = await GetDetailsRawAsync(placeId, _detailsFields);
+        using var jsonDocument = await GetDetailsRawAsync(placeId, _detailsFields).ConfigureAwait(false);
         return DetailsMapper.ToPlaceDetails(placeId, jsonDocument);
     }
 
@@ -50,11 +50,12 @@ internal class DetailsService : IDetailsService {
         };
         var request = CreateRequest($"{PlacesEndpoints.Details}/{placeId}", headers: headers);
 
-        return await _apiClient.SendAsync<JsonDocument>(request);
+        return await _apiClient.SendAsync<JsonDocument>(request).ConfigureAwait(false);
     }
 
     public async Task<IReadOnlyList<PlacePhoto>> GetPhotosAsync(string placeId, PhotoRequest? photoRequest = null) {
-        using var jsonDocument = await GetDetailsRawAsync(placeId, "photos"); // Get Photo info from Details
+        // Get Photo info from Details
+        using var jsonDocument = await GetDetailsRawAsync(placeId, "photos").ConfigureAwait(false);
 
         photoRequest ??= new PhotoRequest();
         
@@ -77,11 +78,11 @@ internal class DetailsService : IDetailsService {
         foreach (var photoDet in rawPhotos)
             tasks.Add(GetPhotoAndMapAsync(photoDet, query));
 
-        return [.. await Task.WhenAll(tasks)];
+        return [.. await Task.WhenAll(tasks).ConfigureAwait(false)];
     }
 
     public async Task<PlaceReviews> GetReviewsAsync(string placeId) {
-        using var jsonDocument = await GetDetailsRawAsync(placeId, _reviewsFields);
+        using var jsonDocument = await GetDetailsRawAsync(placeId, _reviewsFields).ConfigureAwait(false);
         return DetailsMapper.ToPlaceReviews(placeId, jsonDocument);
     }
 
@@ -103,7 +104,7 @@ internal class DetailsService : IDetailsService {
     private async Task<PlacePhoto> GetPhotoAndMapAsync(JsonElement photoDets, IDictionary<string, string> reqQuery) {
         var json = await _apiClient.SendAsync<JsonDocument>(
             CreateRequest($"{photoDets.GetStringValue("name")!}/media", query: reqQuery, keyInHeader: false)
-        );
+        ).ConfigureAwait(false);
         
         return DetailsMapper.ToPlacePhoto(json, photoDets);
     }

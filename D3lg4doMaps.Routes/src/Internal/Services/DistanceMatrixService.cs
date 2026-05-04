@@ -32,10 +32,10 @@ internal class DistanceMatrixService : IDistanceMatrixService {
         }; 
         var request = CreateRequest(headers, distanceRequest);
         
-        var streamResponse = await _apiClient.SendStreamAsync(request);
+        var streamResponse = await _apiClient.SendStreamAsync(request).ConfigureAwait(false);
 
         List<RouteMatrixElement> results = [];
-        await foreach (var item in _serializer.DeserializeStreamAsync<JsonDocument>(streamResponse)) {
+        await foreach (var item in _serializer.DeserializeStreamAsync<JsonDocument>(streamResponse).ConfigureAwait(false)) {
             try {
                 results.Add(DistanceMatrixMapper.ToRouteMatrixElement(item));
             }
@@ -45,7 +45,7 @@ internal class DistanceMatrixService : IDistanceMatrixService {
         return results;
     }
     // -------------------- INNER METHS --------------------
-    private MapsApiRequest CreateRequest(IDictionary<string, string> headers, DistanceRequest request)
+    private static MapsApiRequest CreateRequest(IDictionary<string, string> headers, DistanceRequest request)
         => new () {
             ApiKeyLocation = ApiKeyLocation.Header,
             Method = HttpMethod.Post,

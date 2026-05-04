@@ -27,7 +27,7 @@ internal sealed class DistributedCacheStore : ICacheStore {
 
     // -------------------- METHS --------------------
     public async Task<HttpCacheResponse?> GetAsync(string cacheKey) {
-        var objStr = await _cache.GetStringAsync(cacheKey, default);
+        var objStr = await _cache.GetStringAsync(cacheKey, default).ConfigureAwait(false);
 
         return string.IsNullOrWhiteSpace(objStr) 
             ? null : _serializer.Deserialize<HttpCacheResponse>(objStr);
@@ -35,7 +35,7 @@ internal sealed class DistributedCacheStore : ICacheStore {
 
     public async Task SetAsync(string cacheKey, HttpCacheResponse response) {
         var str = _serializer.Serialize(response);
-        await _cache.SetStringAsync(cacheKey, str, _entryOpts, default);
+        await _cache.SetStringAsync(cacheKey, str, _entryOpts, default).ConfigureAwait(false);
     }
 
     public Task ClearAsync(string cacheKey) 

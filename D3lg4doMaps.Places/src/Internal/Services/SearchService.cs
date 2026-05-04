@@ -26,17 +26,17 @@ internal class SearchService : ISearchService {
             throw new MapsInvalidRequestException("TextQuery must be neither empty nor null.");
         
         var request = CreateRequest(PlacesEndpoints.SearchText, new { textQuery });
-        return await SendAndMapAsync(request);
+        return await SendAndMapAsync(request).ConfigureAwait(false);
     }
 
     public async Task<IReadOnlyList<PlaceSearchResult>> SearchByNearbyAsync(NearbyRequest nearbyRequest) {
         var request = CreateRequest(PlacesEndpoints.SearchNearby, nearbyRequest);
-        return await SendAndMapAsync(request);
+        return await SendAndMapAsync(request).ConfigureAwait(false);
     }
 
     // -------------------- INNER METHS --------------------
     private async Task<IReadOnlyList<PlaceSearchResult>> SendAndMapAsync(MapsApiRequest request) {
-        var response = await _apiClient.SendAsync<PlacesSearchResponse>(request);
+        var response = await _apiClient.SendAsync<PlacesSearchResponse>(request).ConfigureAwait(false);
 
         return [.. 
             response.Places

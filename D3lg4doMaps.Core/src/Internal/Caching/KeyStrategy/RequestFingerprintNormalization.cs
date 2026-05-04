@@ -45,7 +45,7 @@ internal sealed partial class RequestFingerprintCacheKeyStrategy {
         return Encoding.UTF8.GetString(stream.ToArray());
     }
 
-    private void WriteCanonicalElement(Utf8JsonWriter writer, JsonElement element) {
+    private static void WriteCanonicalElement(Utf8JsonWriter writer, JsonElement element) {
         switch (element.ValueKind) {
             case JsonValueKind.Object:
                 writer.WriteStartObject();
