@@ -3,6 +3,7 @@ using DelgadoMaps.Core.Abstractions;
 using DelgadoMaps.Core.Configuration;
 using DelgadoMaps.Core.Enums;
 using DelgadoMaps.Core.Models;
+using Microsoft.Extensions.Options;
 
 namespace DelgadoMaps.Core.Internal.Factories;
 
@@ -14,9 +15,9 @@ internal class RequestFactory : IRequestFactory {
     private readonly MapsConfiguration _config;
     private readonly IRequestBuilder _builder;
 
-    public RequestFactory(MapsConfiguration config, IRequestBuilder builder) {
+    public RequestFactory(IOptions<MapsConfiguration> config, IRequestBuilder builder) {
         _builder = builder;
-        _config = config;
+        _config = config.Value;
         _defaultConfig = new() {
             { "Accept-Language", $"{_config.Language}-{_config.Region}" }
         };
