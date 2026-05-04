@@ -10,7 +10,7 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
     <PackageId>D3lg4doMaps.Routes</PackageId>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <Authors>Sebastian Delgado (JSebas-11)</Authors>
     <Company>None</Company>
 
@@ -24,7 +24,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <PackageReleaseNotes>
-    v3.0.0
+    v3.0.1
 
     BREAKING:
     - AddD3lg4doMapsRoutes => AddDelgadoMapsRoutes
@@ -32,6 +32,11 @@
     IMPROVEMENTS:
     - Added .NET analyzers support
     - Internal async performance improvements
+
+    DOCS:
+    - Updated README documentation
+    - Updated XML documentation
+    - Improved migration guidance
 
     Migration guide:
     https://jsebas-11.github.io/D3lg4doMaps/docs/migration/v3

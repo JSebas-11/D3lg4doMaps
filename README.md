@@ -1,6 +1,6 @@
 # 📦 D3lg4doMaps SDK
 
-A modern, strongly-typed C# SDK for Google Maps Platform (Places, Routes, Distance Matrix, and more).
+A modern, strongly-typed .NET SDK for Google Maps Platform (Places, Routes, Distance Matrix, and more).
 
 ---
 
@@ -13,6 +13,7 @@ D3lg4doMaps provides:
 - Strongly-typed models
 - Clean abstractions
 - Fluent request builders
+- Optional HTTP-layer caching (supports in-memory and distributed providers)
 - Modular architecture (Core, Places, Routes)
 
 ---
@@ -36,12 +37,17 @@ Includes:
 ```csharp
 var services = new ServiceCollection();
 
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY"
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY"
 });
 
-services.AddD3lg4doMapsPlaces();
-services.AddD3lg4doMapsRoutes();
+services.AddDelgadoMapsMemoryCache(opts => {
+    opts.Prefix = "d3lg4doMaps";
+    opts.AbsoluteExpiration = TimeSpan.FromMinutes(30);
+ });
+ 
+services.AddDelgadoMapsPlaces();
+services.AddDelgadoMapsRoutes();
 
 var provider = services.BuildServiceProvider();
 
@@ -74,9 +80,28 @@ dotnet add package D3lg4doMaps.Routes
 
 ## 🧩 Modules
 
-- Core → Configuration, HTTP, infrastructure
+- Core → Configuration, dependency injection, HTTP infrastructure, caching
 - Places → Search, Autocomplete, Details
 - Routes → Directions, Distance Matrix
+
+---
+
+## ⚠️ Breaking Changes
+
+### v2.0.0
+
+- `D3lg4doMaps.*` → `DelgadoMaps.*`
+- Removed `.Public` namespace segment
+
+👉 [Migration guide](https://jsebas-11.github.io/D3lg4doMaps/docs/migration/v2)
+
+### v3.0.0
+
+- `AddD3lg4doMaps...*` → `AddDelgadoMaps...*`
+- Configuration registration now uses the `IOptions` pattern
+- Request timeout type changed from `int` to `TimeSpan`
+
+👉 [Migration guide](https://jsebas-11.github.io/D3lg4doMaps/docs/migration/v3)
 
 ---
 
