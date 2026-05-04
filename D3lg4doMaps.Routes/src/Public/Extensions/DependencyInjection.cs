@@ -1,8 +1,8 @@
-using DelgadoMaps.Core.Configuration;
 using DelgadoMaps.Core.Exceptions;
 using DelgadoMaps.Routes.Internal.Services;
 using DelgadoMaps.Routes.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
+using DelgadoMaps.Core.Internal;
 
 namespace DelgadoMaps.Routes.Extensions;
 
@@ -15,7 +15,7 @@ namespace DelgadoMaps.Routes.Extensions;
 /// Google Routes API, including directions (Compute Routes) and distance matrix services (Compute Matrix Route).
 ///
 /// ⚠ <b>Important:</b> Core services must be registered first by calling
-/// <c>AddD3lg4doMaps()</c>.
+/// <c>AddDelgadoMaps()</c>.
 /// </remarks>
 public static class DependencyInjection {
     /// <summary>
@@ -32,8 +32,8 @@ public static class DependencyInjection {
     /// </exception>
     /// <example>
     /// <code>
-    /// services.AddD3lg4doMaps(configuration);
-    /// services.AddD3lg4doMapsRoutes();
+    /// services.AddDelgadoMaps(configuration);
+    /// services.AddDelgadoMapsRoutes();
     /// </code>
     /// </example>
     /// <remarks>
@@ -47,11 +47,11 @@ public static class DependencyInjection {
     /// Transient lifetime ensures a new instance is created per request,
     /// keeping services lightweight and stateless.
     /// </remarks>
-    public static IServiceCollection AddD3lg4doMapsRoutes(this IServiceCollection services) {
+    public static IServiceCollection AddDelgadoMapsRoutes(this IServiceCollection services) {
         // CORE VERIFICATION
-        if (!services.Any(s => s.ServiceType == typeof(MapsConfiguration)))
+        if (!services.Any(s => s.ServiceType == typeof(MapsCoreMarker)))
             throw new MapsApiException(
-            "D3lg4doMaps.Core services are not registered. Call AddD3lg4doMaps() before AddD3lg4doMapsRoutes()."
+            "D3lg4doMaps.Core services are not registered. Call AddDelgadoMaps() before AddDelgadoMapsRoutes()."
         );
 
         // SERVICES

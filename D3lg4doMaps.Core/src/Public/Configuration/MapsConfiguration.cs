@@ -30,12 +30,12 @@ public sealed class MapsConfiguration {
     public string Region { get; set; } = "US";
 
     /// <summary>
-    /// The request timeout in seconds for API calls.
+    /// The request timeout for API calls.
     /// </summary>
     /// <remarks>
     /// Defaults to 30 seconds.
     /// </remarks>
-    public int TimeOutSeconds { get; set; } = 30;
+    public TimeSpan RequestTimeout { get; set; } = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Logging configuration for the Maps SDK.
