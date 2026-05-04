@@ -5,6 +5,10 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
     <PackageId>D3lg4doMaps.Routes</PackageId>
     <Version>2.0.0</Version>
     <Authors>Sebastian Delgado (JSebas-11)</Authors>
