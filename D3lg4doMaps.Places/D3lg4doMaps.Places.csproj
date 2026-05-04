@@ -10,7 +10,7 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
     <PackageId>D3lg4doMaps.Places</PackageId>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <Authors>Sebastian Delgado (JSebas-11)</Authors>
     <Company>None</Company>
 
@@ -24,10 +24,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     
   <PackageReleaseNotes>
-    BREAKING CHANGE: Renamed namespaces from D3lg4doMaps.* to DelgadoMaps.*
-    Migration: Update using statements accordingly
-    Example: using D3lg4doMaps.Places => using DelgadoMaps.Places
-    </PackageReleaseNotes>
+  v3.0.0
+
+  BREAKING:
+  - AddD3lg4doMapsPlaces => AddDelgadoMapsPlaces
+
+  IMPROVEMENTS:
+  - Added .NET analyzers support
+  - Internal async performance improvements
+
+  Migration guide:
+  https://jsebas-11.github.io/D3lg4doMaps/docs/migration/v3
+  </PackageReleaseNotes>
 
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

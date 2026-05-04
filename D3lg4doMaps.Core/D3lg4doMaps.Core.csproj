@@ -11,7 +11,7 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
     <PackageId>D3lg4doMaps.Core</PackageId>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <Authors>Sebastian Delgado (JSebas-11)</Authors>
     <Company>None</Company>
 
@@ -25,9 +25,28 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     
     <PackageReleaseNotes>
-    BREAKING CHANGE: Renamed namespaces from D3lg4doMaps.* to DelgadoMaps.*
-    Migration: Update using statements accordingly
-    Example: using D3lg4doMaps.Core => using DelgadoMaps.Core
+    v3.0.0
+
+    NEW:
+    - Added optional HTTP-layer caching
+    - Added in-memory and distributed cache support
+    - Added configurable cache expiration policies
+
+    BREAKING:
+    - AddD3lg4doMaps* => AddDelgadoMaps*
+    - Configuration now uses the IOptions pattern
+    - Request timeout changed: int => TimeSpan
+
+    IMPROVEMENTS:
+    - Added .NET analyzers support
+    - Improved SDK consistency and extensibility
+
+    NOTES:
+    - HTTP caching does not apply to stream endpoints
+      like ComputeRouteMatrix (Distance Matrix)
+
+    Migration guide:
+    https://jsebas-11.github.io/D3lg4doMaps/docs/migration/v3
     </PackageReleaseNotes>
     
     <PackageReadmeFile>README.md</PackageReadmeFile>
