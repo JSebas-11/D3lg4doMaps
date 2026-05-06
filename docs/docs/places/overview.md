@@ -9,6 +9,12 @@ Namespaces were changed, update your `using` statements accordingly.
 👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
 :::
 
+:::info Injection update (v3.0.0)
+Dependency injection methods and configuration registration were updated.
+
+👉 See the full migration guide here: [v3 Migration Guide](/docs/migration/v3.md)
+:::
+
 # 📍 Places Overview
 
 The **Places** module provides a powerful and developer-friendly way to interact with Google Places APIs.
@@ -24,6 +30,7 @@ It allows you to **search**, **autocomplete**, and **retrieve rich details** abo
 - 📍 Retrieve detailed place information  
 - 📸 Fetch place photos with configurable resolution  
 - ⭐ Access user reviews and AI summaries  
+- ⚡ Improve API efficiency with optional HTTP-layer caching
 
 ---
 
@@ -45,15 +52,18 @@ The module is built around a set of focused services:
 ```csharp
 var services = new ServiceCollection();
 
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY"
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
 });
-services.AddD3lg4doMapsPlaces();
+
+services.AddDelgadoMapsPlaces();
 
 var provider = services.BuildServiceProvider();
+
 var places = provider.GetRequiredService<IPlacesService>();
 
-var results = await places.Search.SearchByTextAsync("coffee near Medellin");
+var results = await places.Search
+    .SearchByTextAsync("coffee near Medellin");
 ```
 
 ---
@@ -74,6 +84,7 @@ var results = await places.Search.SearchByTextAsync("coffee near Medellin");
 - 👉 Search → [SearchService](/docs/places/services/search.md)
 - 👉 Details → [DetailsService](/docs/places/services/details.md)
 - 👉 Dependency Injection → [Places Injection](/docs/places/extensions.md#-dependency-injection)
+- 👉 HTTP caching → [Caching Injection](/docs/core/extensions.md#-http-caching-injection)
 
 ---
 

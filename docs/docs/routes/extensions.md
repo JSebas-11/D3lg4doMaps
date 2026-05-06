@@ -17,15 +17,23 @@ This registers all services required to interact with the Google Routes API, inc
 Registers all Routes services into the DI container.
 
 ```csharp
-public static IServiceCollection AddD3lg4doMapsRoutes(this IServiceCollection services);
+public static IServiceCollection AddDelgadoMapsRoutes(this IServiceCollection services);
 ```
 
 ### ⚡ Basic Usage
 
 ```csharp
-services.AddD3lg4doMaps(configuration);
-services.AddD3lg4doMapsRoutes();
+services.AddDelgadoMaps(configuration);
+services.AddDelgadoMapsRoutes();
 ```
+
+### ⚡ HTTP Caching
+
+Routes automatically integrates with the Core HTTP caching layer when enabled.
+
+This helps reduce repeated API calls and improve response performance.
+
+👉 See: [Core Caching Extensions](/docs/core/extensions.md#-http-caching-injection)
 
 ### 💡 Behavior
 

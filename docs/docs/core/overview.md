@@ -9,6 +9,12 @@ Namespaces were changed, update your `using` statements accordingly.
 👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
 :::
 
+:::info Injection update (v3.0.0)
+Dependency injection methods and configuration registration were updated.
+
+👉 See the full migration guide here: [v3 Migration Guide](/docs/migration/v3.md)
+:::
+
 # 🧩 Core Overview
 
 The **Core** package provides the foundational infrastructure for the entire SDK.
@@ -19,9 +25,10 @@ It is responsible for handling:
 - HTTP communication
 - Serialization
 - Dependency injection
+- HTTP-layer caching
 - Error handling
 
-All feature modules (such as Places and Routing) are built on top of Core.
+All feature modules (such as Places and Routes) are built on top of Core.
 
 ---
 
@@ -32,6 +39,7 @@ Core acts as the **central layer** of the SDK:
 - Defines shared contracts (abstractions)
 - Implements low-level communication with Google Maps APIs
 - Provides reusable infrastructure for all modules
+- Centralizes SDK configuration and caching
 
 > 📌 You only configure Core once — everything else builds on top of it.
 
@@ -46,8 +54,8 @@ Centralized SDK configuration:
 - API Key
 - Language and region
 - Request timeout
+- HTTP-layer caching
 - Logging *(planned)*
-- MemoryCache *(planned)*
 
 👉 See: [Configuration](configuration)
 
@@ -60,6 +68,7 @@ Registers all required services into your application:
 - HTTP client
 - Serialization
 - Builders and factories
+- Cache infrastructure
 
 👉 See: [Dependency Injection](extensions#-dependency-injection)
 
@@ -104,7 +113,7 @@ Common enumerations:
 Strongly-typed error handling model:
 
 - `MapsApiException` (base)
-- Specialized exceptions (Auth, RateLimit, etc.)
+- Specialized exceptions (Auth, RateLimit, Cache, etc.)
 
 👉 See: [Exceptions](exceptions)
 
@@ -115,6 +124,7 @@ Strongly-typed error handling model:
 Helper utilities and integration helpers:
 
 - Dependency injection extensions
+- Cache registration extensions
 - JSON parsing helpers
 
 👉 See: [Extensions](extensions)
@@ -129,18 +139,23 @@ Using the SDK follows a simple pattern:
 var services = new ServiceCollection();
 
 // 1. Configure Core
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY"
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
 });
 
-// 2. Register feature modules
-services.AddD3lg4doMapsPlaces();
+// 2. Optional cache layer
+services.AddDelgadoMapsMemoryCache(opts => {
+    opts.AbsoluteExpiration = TimeSpan.FromMinutes(30);
+});
 
-// 3.1 Resolve and use services
+// 3. Register feature modules
+services.AddDelgadoMapsPlaces();
+
+// 4 Resolve and use services
 var provider = services.BuildServiceProvider();
 var places = provider.GetRequiredService<IPlacesService>();
 
-// 3.2 Receive services into your modules
+// Or inject directly into your services
 public class MyService {
     private readonly IPlacesService _placesService;
 
@@ -160,6 +175,7 @@ Core is built around a few key ideas:
 - **Separation of concerns** → clear boundaries between components
 - **Extensibility** → replace internal pieces if needed
 - **Developer experience** → minimal setup, clean API
+- **Modularity** → optional infrastructure such as caching
 
 ---
 

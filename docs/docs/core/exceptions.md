@@ -55,6 +55,24 @@ public class MapsApiAuthException : MapsApiException
 
 ---
 
+## 🧊 MapsCacheException
+
+Represents an error during a caching operation.
+
+```csharp
+public class MapsCacheException : MapsApiException
+```
+
+### 📢 When it happens
+
+- Cache key generation failures
+- Invalid cache configuration
+- Missing cache provider registration
+- Duplicate cache layer registration
+- Invalid caching options
+
+---
+
 ## ⚠️ MapsInvalidRequestException
 
 Represents invalid request errors.

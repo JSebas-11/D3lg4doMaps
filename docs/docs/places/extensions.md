@@ -14,15 +14,23 @@ This registers all services required to interact with the Google Places API.
 Registers all Places services into the DI container.
 
 ```csharp
-public static IServiceCollection AddD3lg4doMapsPlaces(this IServiceCollection services);
+public static IServiceCollection AddDelgadoMapsPlaces(this IServiceCollection services);
 ```
 
 ### ⚡ Basic Usage
 
 ```csharp
-services.AddD3lg4doMaps(configuration);
-services.AddD3lg4doMapsPlaces();
+services.AddDelgadoMaps(configuration);
+services.AddDelgadoMapsPlaces();
 ```
+
+### ⚡ HTTP Caching
+
+Places automatically integrates with the Core HTTP caching layer when enabled.
+
+This helps reduce repeated API calls and improve response performance.
+
+👉 See: [Core Caching Extensions](/docs/core/extensions.md#-http-caching-injection)
 
 ### 💡 Behavior
 

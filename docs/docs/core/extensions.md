@@ -10,6 +10,7 @@ into your application and simplify common tasks.
 These extensions cover:
 
 - Dependency injection setup
+- HTTP Caching setup
 - JSON parsing helpers
 
 They are designed to improve developer experience by reducing boilerplate
@@ -21,7 +22,7 @@ and providing safe, reusable patterns.
 
 The SDK integrates with .NET dependency injection through extension methods.
 
-The `AddD3lg4doMaps` method registers all required Core services, including:
+The `AddDelgadoMaps` method registers all required Core services, including:
 
 - HTTP client
 - Serialization
@@ -30,7 +31,7 @@ The `AddD3lg4doMaps` method registers all required Core services, including:
 Registers the core services required to use the SDK.
 
 ```csharp
-public static IServiceCollection AddD3lg4doMaps(
+public static IServiceCollection AddDelgadoMaps(
     this IServiceCollection services, MapsConfiguration config
 )
 ```
@@ -40,8 +41,8 @@ public static IServiceCollection AddD3lg4doMaps(
 ```csharp
 var services = new ServiceCollection();
 
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY"
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
 });
 ```
 
@@ -65,6 +66,120 @@ Throws [MapsApiAuthException](exceptions#-mapsapiauthexception) if `ApiKey` is n
     - Transient → lightweight builders and factories
 - This method only registers **Core services**
 - Feature modules (e.g., Places, Routing) must be registered separately
+
+---
+
+## ⛃ HTTP Caching Injection
+
+The SDK provides optional HTTP-layer caching for standard request/response endpoints.
+
+Supported cache providers:
+
+- In-memory cache (`IMemoryCache`)
+- Distributed cache (`IDistributedCache`)
+    - Redis
+    - SQL Server
+    - NCache
+    - custom providers
+
+Caching is shared across all SDK modules:
+
+- Core
+- Places
+- Routes
+
+> ⚠️ Stream endpoints such as `ComputeRouteMatrix`
+> (`DistanceMatrixService`) are not cached.
+
+### 🧠 Notes
+
+- Caching is optional
+- SDK configuration via [CachingConfiguration](/docs/core/configuration.md#-mapscachingoptions)
+- Only one cache layer can be registered at a time
+- Cache keys are automatically generated per request fingerprint
+- Cache configuration is shared across all SDK modules
+- Distributed cache implementations must be registered before calling:
+    - AddDelgadoMapsDistributedCache()
+
+---
+
+## 💾 In-Memory Cache
+
+Registers an in-memory caching layer using `IMemoryCache` and configured via [MapsCachingOptions](/docs/core/configuration.md#-mapscachingoptions).
+
+```csharp
+public static IServiceCollection AddDelgadoMapsMemoryCache(
+    this IServiceCollection services,
+    Action<MapsCachingOptions> cachingOpts
+)
+```
+
+### ⚡ Example
+
+```csharp
+var services = new ServiceCollection();
+
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
+});
+
+services.AddDelgadoMapsMemoryCache(opts => {
+    opts.Prefix = "d3lg4doMaps";
+    opts.AbsoluteExpiration = TimeSpan.FromMinutes(30);
+    opts.SlidingExpiration = TimeSpan.FromMinutes(10);
+});
+```
+
+### ⚠️ Validation
+
+Throws:
+
+- [MapsApiException](/docs/core/exceptions.md#-mapsapiexception) when:
+    - Core services were not registered
+- [MapsCacheException](/docs/core/exceptions.md#-mapscacheexception) when:
+    - Another cache layer already exists
+    - Cache configuration is invalid
+
+---
+
+## 🌐 Distributed Cache
+
+Registers a distributed caching layer using an existing `IDistributedCache` implementation and SDK configuration via [MapsCachingOptions](/docs/core/configuration.md#-mapscachingoptions).
+
+```csharp
+public static IServiceCollection AddDelgadoMapsDistributedCache(
+    this IServiceCollection services,
+    Action<MapsCachingOptions> cachingOpts
+)
+```
+
+### ⚡ Example (Redis)
+
+```csharp
+services.AddStackExchangeRedisCache(opts => {
+    opts.Configuration = "localhost:6379";
+});
+
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
+});
+
+services.AddDelgadoMapsDistributedCache(opts => {
+    opts.Prefix = "d3lg4doMaps";
+    opts.AbsoluteExpiration = TimeSpan.FromMinutes(30);
+});
+```
+
+### ⚠️ Validation
+
+Throws:
+
+- [MapsApiException](/docs/core/exceptions.md#-mapsapiexception) when:
+    - Core services were not registered
+- [MapsCacheException](/docs/core/exceptions.md#-mapscacheexception) when:
+    - `IDistributedCache` was not registered
+    - Another cache layer already exists
+    - Cache configuration is invalid
 
 ---
 

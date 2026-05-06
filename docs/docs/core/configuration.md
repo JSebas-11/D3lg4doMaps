@@ -4,15 +4,15 @@ title: Configuration
 
 # ⚙️ Core Configuration
 
-The SDK is configured through a central `MapsConfiguration` object.
+The SDK is configured through a central `MapsConfiguration` and `MapsCachingOptions` objects.
 
 This configuration controls:
 
 - Authentication (API key)
 - Localization (language and region)
 - Request behavior (timeouts)
+- HTTP-layer caching (in-memory and distributed)
 - Logging *(planned)*
-- MemoryCache *(planned)*
 
 ---
 
@@ -25,7 +25,7 @@ public sealed class MapsConfiguration {
     public string ApiKey { get; set; } = default!;
     public string Language { get; set; } = "en";
     public string Region { get; set; } = "US";
-    public int TimeOutSeconds { get; set; } = 30;
+    public TimeSpan RequestTimeout { get; set; } = TimeSpan.FromSeconds(30);
     public MapsLoggingOptions Logging { get; set; } = new();
 }
 ```
@@ -37,8 +37,30 @@ public sealed class MapsConfiguration {
 | `ApiKey`         | API key utilized to authenticate requests in Google |
 | `Language`       | Preferred response language (default: en)           |
 | `Region`         | Region bias for results (default: US)               |
-| `TimeOutSeconds` | Request timeout in seconds (default: 30)            |
+| `RequestTimeout` | Request timeout for API calls (default: 30 seconds) |
 | `Logging`        | Logging configuration (planned)                     |
+
+---
+
+## 🧾 MapsCachingOptions
+
+Defines HTTP caching configuration for the SDK.
+
+```csharp
+public sealed class MapsCachingOptions {
+    public string Prefix { get; set; } = "d3lg4doMaps";
+    public TimeSpan AbsoluteExpiration { get; set; } = TimeSpan.FromMinutes(30);
+    public TimeSpan SlidingExpiration { get; set; } = TimeSpan.FromMinutes(30);
+}
+```
+
+### ⚙️ Properties
+
+| Property            | Description                     |
+|:--------------------|:--------------------------------|
+| `Prefix`            | Prefix used for cache keys      |
+| `AbsoluteExpiration`| Absolute cache expiration time  |
+| `SlidingExpiration` | Sliding cache expiration time   |
 
 ---
 
@@ -66,16 +88,21 @@ public sealed class MapsLoggingOptions {
 
 ## ⚡ Basic Setup
 
-👉 [Dependency Injection](extensions#-dependency-injection)
+👉 [Dependency Injection](extensions#-dependency-injection)  
+👉 [Caching Injection](/docs/core/extensions.md#-http-caching-injection)
 
 ```csharp
 var services = new ServiceCollection();
 
-services.AddD3lg4doMaps(new MapsConfiguration() {
-    ApiKey = "YOUR_API_KEY",
-    Language = "en",
-    Region = "US",
-    TimeOutSeconds = 30
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
+    opts.Language = "en";
+    opts.Region = "US";
+    opts.RequestTimeout = TimeSpan.FromSeconds(30);
+});
+
+services.AddDelgadoMapsMemoryCache(opts => {
+    opts.AbsoluteExpiration = TimeSpan.FromMinutes(30);
 });
 ```
 
@@ -87,4 +114,5 @@ services.AddD3lg4doMaps(new MapsConfiguration() {
 - **ApiKey is required** for all API calls
 - **Default values** are provided for most settings
 - Logging configuration is defined but **not yet implemented**
-- Memory caching support is **planned but not yet available**
+- HTTP **caching** is **optional and configurable**
+- Stream endpoints services such as [IDistanceMatrixService](/docs/routes/abstractions.md#-idistancematrixservice) are not cached

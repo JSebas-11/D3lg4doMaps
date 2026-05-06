@@ -9,6 +9,12 @@ Namespaces were changed, update your `using` statements accordingly.
 👉 See the full migration guide here: [v2 Migration Guide](/docs/migration/v2.md)
 :::
 
+:::info Injection update (v3.0.0)
+Dependency injection methods and configuration registration were updated.
+
+👉 See the full migration guide here: [v3 Migration Guide](/docs/migration/v3.md)
+:::
+
 # 🧭 Routes Overview
 
 The **Routes** module provides a powerful and developer-friendly way to compute routes and travel distances between locations.
@@ -24,6 +30,7 @@ It wraps the Google Routes API and exposes **strongly-typed, flexible abstractio
 - 🚗 Customize routing behavior (traffic, tolls, vehicle type, etc.)  
 - 🔀 Generate alternative routes and optimize waypoint order  
 - 🌍 Work with localized, human-readable route data  
+- ⚡ Improve API efficiency with optional HTTP-layer caching
 
 ---
 
@@ -45,10 +52,10 @@ Both services share a common set of **routing components** and **metadata models
 ```csharp
 var services = new ServiceCollection();
 
-services.AddD3lg4doMaps(new MapsConfiguration {
-    ApiKey = "YOUR_API_KEY"
+services.AddDelgadoMaps(opts => {
+    opts.ApiKey = "YOUR_API_KEY";
 });
-services.AddD3lg4doMapsRoutes();
+services.AddDelgadoMapsRoutes();
 
 var provider = services.BuildServiceProvider();
 
@@ -144,3 +151,4 @@ Rich, structured data returned from routing operations:
 - 👉 Directions → [Directions Service](/docs/routes/services/directions.md)
 - 👉 Distance Matrix → [Distance Matrix](/docs/routes/services/distanceMatrix.md)
 - 👉 Dependency Injection → [Routes Injection](/docs/routes/extensions.md#-dependency-injection)
+- 👉 HTTP caching → [Caching Injection](/docs/core/extensions.md#-http-caching-injection)
